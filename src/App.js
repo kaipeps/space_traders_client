@@ -1,10 +1,15 @@
-import './App.css';
+import Main from './components/Pages/Main';
+import ShipMenu from './components/Sections/ShipMenu';
+import { Routes, Route } from 'react-router-dom';
+import './App.scss'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<ShipMenu />} />
+        <Route path="/ship" element={<ShipMenu />} />
+      </Routes>
+    </>
   );
 }
-
-export default App;

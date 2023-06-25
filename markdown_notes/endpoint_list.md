@@ -52,7 +52,7 @@
     - (optional) `email`: email to register for the account system
 - `/my/ships` - Purchase Ship
   - Must be docked at a Shipyard Waypoint
-  - Must have enough units for purchase
+  - Must have enough credits for purchase
   - Req Body Requires:
     - `shipType`: the type of Ship to buy
     - `waypointSymbol`: the docked Shipyard
@@ -75,7 +75,7 @@
 ### Transactions
 - `/purchase` - Purchase Goods
   - Must be docked at a Marketplace Waypoint
-  - Must have enough units for purchase
+  - Must have enough credits for purchase
   - Req Body Requires:
     - `symbol`: the Trade Good to buy
     - `units`: amount of the Trade Good to buy
@@ -85,10 +85,10 @@
     - `symbol`: the Trade Good to sell
     - `units`: amount of the Trade Good to sell
 - `/refuel` - Refuel Ship
-  - Note: Each fuel bought refills 100 units of Ship fuel
+  - Note: Each fuel bought refills 100 credits of Ship fuel
   - Must be docked at a Marketplace Waypoint
   - Marketplace must be selling fuel
-  - Must have enough units for purchase
+  - Must have enough credits for purchase
   - Req Body Requires:
     - `units`: the amount of fuel to fill  
     Note: if left blank/not given, the ship will fill as much as possible
@@ -175,7 +175,7 @@
 ### Mounts
 General Requirements:  
 Must be docked at a Shipyard Waypoint  
-Must have enough units for Inst/Rmvl fee
+Must have enough credits for Inst/Rmvl fee
 - `/mounts/install` - Install Mount
   - Must have mount to install in cargo hold
   - Req Body Requires:

@@ -1,0 +1,39 @@
+// styling variables
+
+// mixins
+
+// styles
+* {
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid red;
+
+  body {
+    background-color: black;
+    color: cyan;
+  }
+
+  div,
+  section {
+    padding: 0.5vh;
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  .Fleet {
+    .ShipCard {
+      border: 1px solid deepskyblue;
+      border-radius: 5px;
+      margin: 2vh;
+      box-shadow: 0px 0px 3px deepskyblue,
+        0px 0px 3px deepskyblue inset;
+    }
+  }
+
+  .ShipMenu {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1.5fr;
+  }
+}
