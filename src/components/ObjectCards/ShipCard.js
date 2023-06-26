@@ -9,7 +9,7 @@ const convertSymbolNotation = (symbol) => symbol
 const displayStatusAndLocation = (nav) => {
   const status = convertSymbolNotation(nav.status)
   const location = nav.waypointSymbol
-  return <>Currently: {status} {status === "In Transit" ? "To" : "At"} {location}</>
+  return <>Currently: {status} <br />{status === "In Transit" ? "To:" : "At:"} {location}</>
 }
 
 export default function ShipCard({ ship }) {

@@ -1,6 +1,5 @@
 const initData = {
   "data": {
-    "token": "Not today, buddy.",
     "agent": {
       "accountId": "cljc6on110vv8s60cuvumf0x2",
       "symbol": "SHR1MPY",
@@ -274,236 +273,6 @@ const initData = {
   }
 }
 
-const agentData = {
-  "data": {
-    "accountId": "clj5urhna8m1qs60dv7tezdui",
-    "symbol": "SHR1MPY",
-    "headquarters": "X1-ZT91-90060F",
-    "credits": 150000,
-    "startingFaction": "COSMIC"
-  }
-}
-
-const shipData = {
-  "data": {
-    "symbol": "SHR1MPY-1",
-    "nav": {
-      "systemSymbol": "X1-ZT91",
-      "waypointSymbol": "X1-ZT91-90060F",
-      "route": {
-        "departure": {
-          "symbol": "X1-ZT91-90060F",
-          "type": "PLANET",
-          "systemSymbol": "X1-ZT91",
-          "x": -13,
-          "y": 18
-        },
-        "destination": {
-          "symbol": "X1-ZT91-90060F",
-          "type": "PLANET",
-          "systemSymbol": "X1-ZT91",
-          "x": -13,
-          "y": 18
-        },
-        "arrival": "2023-06-21T15:11:52.437Z",
-        "departureTime": "2023-06-21T15:11:52.437Z"
-      },
-      "status": "DOCKED",
-      "flightMode": "CRUISE"
-    },
-    "crew": {
-      "current": 59,
-      "capacity": 80,
-      "required": 59,
-      "rotation": "STRICT",
-      "morale": 100,
-      "wages": 0
-    },
-    "fuel": {
-      "current": 1200,
-      "capacity": 1200,
-      "consumed": {
-        "amount": 0,
-        "timestamp": "2023-06-21T15:11:52.437Z"
-      }
-    },
-    "frame": {
-      "symbol": "FRAME_FRIGATE",
-      "name": "Frame Frigate",
-      "description": "A medium-sized, multi-purpose spacecraft, often used for combat, transport, or support operations.",
-      "moduleSlots": 8,
-      "mountingPoints": 5,
-      "fuelCapacity": 1200,
-      "condition": 100,
-      "requirements": {
-        "power": 8,
-        "crew": 25
-      }
-    },
-    "reactor": {
-      "symbol": "REACTOR_FISSION_I",
-      "name": "Fission Reactor I",
-      "description": "A basic fission power reactor, used to generate electricity from nuclear fission reactions.",
-      "condition": 100,
-      "powerOutput": 31,
-      "requirements": {
-        "crew": 8
-      }
-    },
-    "engine": {
-      "symbol": "ENGINE_ION_DRIVE_II",
-      "name": "Ion Drive II",
-      "description": "An advanced propulsion system that uses ionized particles to generate high-speed, low-thrust acceleration, with improved efficiency and performance.",
-      "condition": 100,
-      "speed": 30,
-      "requirements": {
-        "power": 6,
-        "crew": 8
-      }
-    },
-    "modules": [
-      {
-        "symbol": "MODULE_CARGO_HOLD_I",
-        "name": "Cargo Hold",
-        "description": "A module that increases a ship's cargo capacity.",
-        "capacity": 30,
-        "requirements": {
-          "crew": 0,
-          "power": 1,
-          "slots": 1
-        }
-      },
-      {
-        "symbol": "MODULE_CARGO_HOLD_I",
-        "name": "Cargo Hold",
-        "description": "A module that increases a ship's cargo capacity.",
-        "capacity": 30,
-        "requirements": {
-          "crew": 0,
-          "power": 1,
-          "slots": 1
-        }
-      },
-      {
-        "symbol": "MODULE_CREW_QUARTERS_I",
-        "name": "Crew Quarters",
-        "description": "A module that provides living space and amenities for the crew.",
-        "capacity": 40,
-        "requirements": {
-          "crew": 2,
-          "power": 1,
-          "slots": 1
-        }
-      },
-      {
-        "symbol": "MODULE_CREW_QUARTERS_I",
-        "name": "Crew Quarters",
-        "description": "A module that provides living space and amenities for the crew.",
-        "capacity": 40,
-        "requirements": {
-          "crew": 2,
-          "power": 1,
-          "slots": 1
-        }
-      },
-      {
-        "symbol": "MODULE_MINERAL_PROCESSOR_I",
-        "name": "Mineral Processor",
-        "description": "Crushes and processes extracted minerals and ores into their component parts, filters out impurities, and containerizes them into raw storage units.",
-        "requirements": {
-          "crew": 0,
-          "power": 1,
-          "slots": 2
-        }
-      },
-      {
-        "symbol": "MODULE_JUMP_DRIVE_I",
-        "name": "Jump Drive I",
-        "description": "A basic antimatter jump drive that allows for instantaneous short-range interdimensional travel.",
-        "range": 500,
-        "requirements": {
-          "crew": 10,
-          "power": 4,
-          "slots": 1
-        }
-      },
-      {
-        "symbol": "MODULE_WARP_DRIVE_I",
-        "name": "Warp Drive I",
-        "description": "A basic warp drive that allows for short-range interstellar travel.",
-        "range": 2000,
-        "requirements": {
-          "crew": 2,
-          "power": 3,
-          "slots": 1
-        }
-      }
-    ],
-    "mounts": [
-      {
-        "symbol": "MOUNT_SENSOR_ARRAY_I",
-        "name": "Sensor Array I",
-        "description": "A basic sensor array that improves a ship's ability to detect and track other objects in space.",
-        "strength": 1,
-        "requirements": {
-          "crew": 0,
-          "power": 1
-        }
-      },
-      {
-        "symbol": "MOUNT_MINING_LASER_I",
-        "name": "Mining Laser I",
-        "description": "A basic mining laser that can be used to extract valuable minerals from asteroids and other space objects.",
-        "strength": 10,
-        "requirements": {
-          "crew": 0,
-          "power": 1
-        }
-      },
-      {
-        "symbol": "MOUNT_SURVEYOR_I",
-        "name": "Surveyor I",
-        "description": "A basic survey probe that can be used to gather information about a mineral deposit.",
-        "strength": 1,
-        "deposits": [
-          "QUARTZ_SAND",
-          "SILICON_CRYSTALS",
-          "PRECIOUS_STONES",
-          "ICE_WATER",
-          "AMMONIA_ICE",
-          "IRON_ORE",
-          "COPPER_ORE",
-          "SILVER_ORE",
-          "ALUMINUM_ORE",
-          "GOLD_ORE",
-          "PLATINUM_ORE"
-        ],
-        "requirements": {
-          "crew": 2,
-          "power": 1
-        }
-      }
-    ],
-    "registration": {
-      "name": "SHR1MPY-1",
-      "factionSymbol": "COSMIC",
-      "role": "COMMAND"
-    },
-    "cargo": {
-      "capacity": 60,
-      "units": 0,
-      "inventory": [
-        {
-          "symbol": "string",
-          "name": "string",
-          "description": "string",
-          "units": 1
-        }
-      ]
-    }
-  }
-}
-
 const contractsData = {
   "data": [
     {
@@ -536,6 +305,233 @@ const contractsData = {
     "page": 1,
     "limit": 10
   }
+}
+
+const systemScanData = {
+  "cooldown": {
+    "shipSymbol": "SHR1MPY-1",
+    "totalSeconds": 70,
+    "remainingSeconds": 69,
+    "expiration": "2023-06-26T06:26:17.807Z"
+  },
+  "systems": [
+    {
+      "symbol": "X1-YG78",
+      "sectorSymbol": "X1",
+      "type": "RED_STAR",
+      "x": 9457,
+      "y": 30573,
+      "distance": 311
+    },
+    {
+      "symbol": "X1-QA43",
+      "sectorSymbol": "X1",
+      "type": "NEUTRON_STAR",
+      "x": 10056,
+      "y": 30132,
+      "distance": 529
+    },
+    {
+      "symbol": "X1-SM5",
+      "sectorSymbol": "X1",
+      "type": "ORANGE_STAR",
+      "x": 10497,
+      "y": 30095,
+      "distance": 967
+    },
+    {
+      "symbol": "X1-SH27",
+      "sectorSymbol": "X1",
+      "type": "BLUE_STAR",
+      "x": 9026,
+      "y": 31270,
+      "distance": 1123
+    },
+    {
+      "symbol": "X1-YA5",
+      "sectorSymbol": "X1",
+      "type": "YOUNG_STAR",
+      "x": 8572,
+      "y": 29598,
+      "distance": 1187
+    },
+    {
+      "symbol": "X1-PN2",
+      "sectorSymbol": "X1",
+      "type": "RED_STAR",
+      "x": 9555,
+      "y": 31504,
+      "distance": 1229
+    },
+    {
+      "symbol": "X1-FZ91",
+      "sectorSymbol": "X1",
+      "type": "RED_STAR",
+      "x": 9077,
+      "y": 29088,
+      "distance": 1277
+    },
+    {
+      "symbol": "X1-KX80",
+      "sectorSymbol": "X1",
+      "type": "ORANGE_STAR",
+      "x": 10751,
+      "y": 30889,
+      "distance": 1352
+    },
+    {
+      "symbol": "X1-UV71",
+      "sectorSymbol": "X1",
+      "type": "BLUE_STAR",
+      "x": 8533,
+      "y": 29368,
+      "distance": 1360
+    },
+    {
+      "symbol": "X1-HD81",
+      "sectorSymbol": "X1",
+      "type": "RED_STAR",
+      "x": 8490,
+      "y": 31172,
+      "distance": 1386
+    },
+    {
+      "symbol": "X1-AA46",
+      "sectorSymbol": "X1",
+      "type": "NEUTRON_STAR",
+      "x": 10549,
+      "y": 29236,
+      "distance": 1443
+    },
+    {
+      "symbol": "X1-ZH83",
+      "sectorSymbol": "X1",
+      "type": "RED_STAR",
+      "x": 8882,
+      "y": 31590,
+      "distance": 1474
+    },
+    {
+      "symbol": "X1-CK20",
+      "sectorSymbol": "X1",
+      "type": "RED_STAR",
+      "x": 10833,
+      "y": 31061,
+      "distance": 1507
+    },
+    {
+      "symbol": "X1-GX5",
+      "sectorSymbol": "X1",
+      "type": "YOUNG_STAR",
+      "x": 8167,
+      "y": 31127,
+      "distance": 1622
+    },
+    {
+      "symbol": "X1-XP25",
+      "sectorSymbol": "X1",
+      "type": "RED_STAR",
+      "x": 10187,
+      "y": 28749,
+      "distance": 1655
+    },
+    {
+      "symbol": "X1-GH21",
+      "sectorSymbol": "X1",
+      "type": "YOUNG_STAR",
+      "x": 7947,
+      "y": 30980,
+      "distance": 1748
+    },
+    {
+      "symbol": "X1-MD35",
+      "sectorSymbol": "X1",
+      "type": "BLUE_STAR",
+      "x": 8313,
+      "y": 29018,
+      "distance": 1761
+    },
+    {
+      "symbol": "X1-RX65",
+      "sectorSymbol": "X1",
+      "type": "RED_STAR",
+      "x": 8693,
+      "y": 28666,
+      "distance": 1822
+    },
+    {
+      "symbol": "X1-YZ55",
+      "sectorSymbol": "X1",
+      "type": "RED_STAR",
+      "x": 11296,
+      "y": 30858,
+      "distance": 1844
+    },
+    {
+      "symbol": "X1-VK87",
+      "sectorSymbol": "X1",
+      "type": "BLUE_STAR",
+      "x": 8461,
+      "y": 31891,
+      "distance": 1947
+    },
+    {
+      "symbol": "X1-HK35",
+      "sectorSymbol": "X1",
+      "type": "NEUTRON_STAR",
+      "x": 7587,
+      "y": 29847,
+      "distance": 2006
+    },
+    {
+      "symbol": "X1-PX50",
+      "sectorSymbol": "X1",
+      "type": "ORANGE_STAR",
+      "x": 8474,
+      "y": 31996,
+      "distance": 2028
+    },
+    {
+      "symbol": "X1-S59",
+      "sectorSymbol": "X1",
+      "type": "BLUE_STAR",
+      "x": 8714,
+      "y": 28396,
+      "distance": 2055
+    },
+    {
+      "symbol": "X1-YB89",
+      "sectorSymbol": "X1",
+      "type": "BLUE_STAR",
+      "x": 10225,
+      "y": 32250,
+      "distance": 2088
+    },
+    {
+      "symbol": "X1-HH68",
+      "sectorSymbol": "X1",
+      "type": "BLACK_HOLE",
+      "x": 7556,
+      "y": 29368,
+      "distance": 2188
+    },
+    {
+      "symbol": "X1-XD16",
+      "sectorSymbol": "X1",
+      "type": "YOUNG_STAR",
+      "x": 7955,
+      "y": 28747,
+      "distance": 2207
+    },
+    {
+      "symbol": "X1-YN36",
+      "sectorSymbol": "X1",
+      "type": "ORANGE_STAR",
+      "x": 7698,
+      "y": 28853,
+      "distance": 2333
+    }
+  ]
 }
 
 const systemData = {

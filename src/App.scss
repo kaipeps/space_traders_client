@@ -1,68 +1,117 @@
 // styling variables
+$cm-light-shade: #bfdfef;
+$cm-light-accent: #39bbea;
+$cm-light-hover: #67d5fc;
+$cm-main-brand: #2f3679;
+$cm-dark-accent: #e4598e;
+$cm-dark-shade: #0b041e;
 
 // mixins
-@mixin border() {
-  border: 2px solid deepskyblue;
-  border-radius: 1em;
-  box-shadow: 0px 0px 3px deepskyblue,
-    0px 0px 3px deepskyblue inset;
-}
-
-// styles
-* {
-  text-align: center;
-  // box-sizing: border-box;
-  // border: 1px solid red;
-
-  body {
-    background-color: black;
-    color: cyan;
-  }
+@mixin wireframing() {
 
   div,
   section {
-    padding: 0.5vh;
+    box-sizing: border-box;
+    border: 1px solid red;
   }
+}
+
+@mixin neon-border($color) {
+  border: 2px solid $cm-light-accent;
+  border-radius: 1em;
+  box-shadow: 0px 0px 3px $cm-light-accent,
+    0px 0px 3px $cm-light-accent inset;
+}
+
+// styles
+body {
+  // * {
+  //   @include wireframing()
+  // }
+
+  box-sizing: border-box;
+  padding: 0.5em;
+  text-align: center;
+  font-family: 'Roboto Mono';
+  background-color: $cm-dark-shade;
+  color: $cm-light-shade;
 
   h1,
   h2,
   h3,
   h4 {
+    font-family: 'Rubik';
     margin: 0.25em;
   }
 
-  .Fleet {
-    .ShipCard {
-      @include border;
-      margin: 2vh;
+  a {
+    color: $cm-light-accent
+  }
+
+  a:hover {
+    color: $cm-light-hover
+  }
+
+  .txt-accent {
+    color: $cm-dark-accent;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+
+    .Fleet {
+      .ships {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+
+        .ShipCard {
+          @include neon-border($cm-light-accent);
+          padding: 0.5em;
+        }
+      }
     }
   }
 
   .ShipMenu {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2.5fr 1fr;
 
     .ship-left {
       display: grid;
       grid-template-rows: 1fr 2fr;
-      gap: 2vh;
+      gap: 1em;
 
       .status,
       .cargo {
-        @include border;
+        @include neon-border($cm-light-accent);
+
+        .inventory {
+          margin-top: 0.5em;
+
+          .item {
+            margin-bottom: 0.25em;
+          }
+        }
       }
     }
 
     .ship-centre {
       .nav {
-        margin-top: 2vh;
+        margin-top: 1em;
 
         .waypoints {
-          @include border;
-          margin: 2vh;
+          @include neon-border($cm-light-accent);
+          margin: 1em;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          padding: 3vh;
+          gap: 1em;
+          padding: 1em;
+
+          .waypoint {
+            text-align: center;
+          }
         }
       }
     }
@@ -70,11 +119,16 @@
     .ship-right {
       display: grid;
       grid-template-rows: 1fr 1fr;
-      gap: 2vh;
+      gap: 1em;
 
       .modules,
       .mounts {
-        @include border;
+        @include neon-border($cm-light-accent);
+
+        .module,
+        .mount {
+          margin-bottom: 0.25em;
+        }
       }
     }
   }

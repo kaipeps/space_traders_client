@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ShipCard from "../ObjectCards/ShipCard";
 
 export default function Fleet({ fleetData }) {
@@ -10,7 +11,9 @@ export default function Fleet({ fleetData }) {
       </header>
       <section className="ships">
         {fleet.map((ship, i) => (
-          <ShipCard key={i} ship={ship} />
+          <Link to="/ship">
+            <ShipCard key={i} ship={ship} />
+          </Link>
         ))}
       </section>
     </div>
