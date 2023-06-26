@@ -1,273 +1,275 @@
 const initData = {
-  "token": "HA, you thought.",
-  "agent": {
-    "accountId": "clj5urhna8m1qs60dv7tezdui",
-    "symbol": "SHR1MPY",
-    "headquarters": "X1-ZT91-90060F",
-    "credits": 150000,
-    "startingFaction": "COSMIC"
-  },
-  "contract": {
-    "id": "clj5urhp48m1ts60d9hbosdea",
-    "factionSymbol": "COSMIC",
-    "type": "PROCUREMENT",
-    "terms": {
-      "deadline": "2023-06-28T15:11:52.385Z",
-      "payment": {
-        "onAccepted": 2231250,
-        "onFulfilled": 13387500
+  "data": {
+    "token": "Not today, buddy.",
+    "agent": {
+      "accountId": "cljc6on110vv8s60cuvumf0x2",
+      "symbol": "SHR1MPY",
+      "headquarters": "X1-TX94-77250C",
+      "credits": 150000,
+      "startingFaction": "ECHO"
+    },
+    "contract": {
+      "id": "cljc6on350vvcs60cb1bxj8vq",
+      "factionSymbol": "ECHO",
+      "type": "PROCUREMENT",
+      "terms": {
+        "deadline": "2023-07-03T01:32:11.853Z",
+        "payment": {
+          "onAccepted": 25899,
+          "onFulfilled": 120862
+        },
+        "deliver": [
+          {
+            "tradeSymbol": "COPPER_ORE",
+            "destinationSymbol": "X1-TX94-85842E",
+            "unitsRequired": 890,
+            "unitsFulfilled": 0
+          }
+        ]
       },
-      "deliver": [
+      "accepted": false,
+      "fulfilled": false,
+      "expiration": "2023-06-27T01:32:11.853Z",
+      "deadlineToAccept": "2023-06-27T01:32:11.853Z"
+    },
+    "faction": {
+      "symbol": "ECHO",
+      "name": "Echo Technological Conclave",
+      "description": "Echo Technological Conclave is an innovative and forward-thinking faction that thrives on technological advancement and scientific discovery. They have a deep commitment to progress and a drive to push the boundaries of what is possible, making them a force to be reckoned with.",
+      "headquarters": "X1-TX94-77250C",
+      "traits": [
         {
-          "tradeSymbol": "COPPER_ORE",
-          "destinationSymbol": "X1-ZT91-88952X",
-          "unitsRequired": 85000,
-          "unitsFulfilled": 0
-        }
-      ]
-    },
-    "accepted": false,
-    "fulfilled": false,
-    "expiration": "2023-06-22T15:11:52.384Z",
-    "deadlineToAccept": "2023-06-22T15:11:52.384Z"
-  },
-  "faction": {
-    "symbol": "COSMIC",
-    "name": "Cosmic Engineers",
-    "description": "The Cosmic Engineers are a group of highly advanced scientists and engineers who seek to terraform and colonize new worlds, pushing the boundaries of technology and exploration.",
-    "headquarters": "X1-ZT91-90060F",
-    "traits": [
-      {
-        "symbol": "INNOVATIVE",
-        "name": "Innovative",
-        "description": "Willing to try new and untested ideas. Sometimes able to come up with creative and original solutions to problems, and may be able to think outside the box. Sometimes at the forefront of technological or social change, and may be willing to take risks in order to advance the boundaries of human knowledge and understanding."
-      },
-      {
-        "symbol": "BOLD",
-        "name": "Bold",
-        "description": "Unafraid to take risks and challenge the status quo. Sometimes willing to do things that others would not dare, and may be able to overcome obstacles and challenges that would be insurmountable for others. Sometimes able to inspire and motivate others to take bold action as well."
-      },
-      {
-        "symbol": "VISIONARY",
-        "name": "Visionary",
-        "description": "Possessing a clear and compelling vision for the future. Sometimes able to see beyond the present and anticipate the needs and challenges of tomorrow. Sometimes able to inspire and guide others towards a better and brighter future, and may be willing to take bold and decisive action to make their vision a reality."
-      },
-      {
-        "symbol": "CURIOUS",
-        "name": "Curious",
-        "description": "Possessing a strong desire to learn and explore. Sometimes interested in a wide range of topics and may be willing to take risks in order to satisfy their curiosity. Sometimes able to think outside the box and come up with creative solutions to challenges."
-      }
-    ],
-    "isRecruiting": true
-  },
-  "ship": {
-    "symbol": "SHR1MPY-1",
-    "nav": {
-      "systemSymbol": "X1-ZT91",
-      "waypointSymbol": "X1-ZT91-90060F",
-      "route": {
-        "departure": {
-          "symbol": "X1-ZT91-90060F",
-          "type": "PLANET",
-          "systemSymbol": "X1-ZT91",
-          "x": -13,
-          "y": 18
+          "symbol": "INNOVATIVE",
+          "name": "Innovative",
+          "description": "Willing to try new and untested ideas. Sometimes able to come up with creative and original solutions to problems, and may be able to think outside the box. Sometimes at the forefront of technological or social change, and may be willing to take risks in order to advance the boundaries of human knowledge and understanding."
         },
-        "destination": {
-          "symbol": "X1-ZT91-90060F",
-          "type": "PLANET",
-          "systemSymbol": "X1-ZT91",
-          "x": -13,
-          "y": 18
+        {
+          "symbol": "VISIONARY",
+          "name": "Visionary",
+          "description": "Possessing a clear and compelling vision for the future. Sometimes able to see beyond the present and anticipate the needs and challenges of tomorrow. Sometimes able to inspire and guide others towards a better and brighter future, and may be willing to take bold and decisive action to make their vision a reality."
         },
-        "arrival": "2023-06-21T15:11:52.437Z",
-        "departureTime": "2023-06-21T15:11:52.437Z"
+        {
+          "symbol": "RESEARCH_FOCUSED",
+          "name": "Research-Focused",
+          "description": "Dedicated to advancing knowledge and understanding through research and experimentation. Often have a strong focus on scientific and technological development, and may be willing to take risks and explore new ideas in order to make progress."
+        },
+        {
+          "symbol": "TECHNOLOGICALLY_ADVANCED",
+          "name": "Technologically Advanced",
+          "description": "Possessing advanced technology and knowledge, often far beyond the level of other factions. Often have access to powerful weapons, ships, and other technology that gives them a significant advantage in battles and other conflicts."
+        }
+      ],
+      "isRecruiting": true
+    },
+    "ship": {
+      "symbol": "SHR1MPY-1",
+      "nav": {
+        "systemSymbol": "X1-TX94",
+        "waypointSymbol": "X1-TX94-77250C",
+        "route": {
+          "departure": {
+            "symbol": "X1-TX94-77250C",
+            "type": "PLANET",
+            "systemSymbol": "X1-TX94",
+            "x": 8,
+            "y": 23
+          },
+          "destination": {
+            "symbol": "X1-TX94-77250C",
+            "type": "PLANET",
+            "systemSymbol": "X1-TX94",
+            "x": 8,
+            "y": 23
+          },
+          "arrival": "2023-06-26T01:32:11.909Z",
+          "departureTime": "2023-06-26T01:32:11.909Z"
+        },
+        "status": "DOCKED",
+        "flightMode": "CRUISE"
       },
-      "status": "DOCKED",
-      "flightMode": "CRUISE"
-    },
-    "crew": {
-      "current": 59,
-      "capacity": 80,
-      "required": 59,
-      "rotation": "STRICT",
-      "morale": 100,
-      "wages": 0
-    },
-    "fuel": {
-      "current": 1200,
-      "capacity": 1200,
-      "consumed": {
-        "amount": 0,
-        "timestamp": "2023-06-21T15:11:52.437Z"
+      "crew": {
+        "current": 59,
+        "capacity": 80,
+        "required": 59,
+        "rotation": "STRICT",
+        "morale": 100,
+        "wages": 0
+      },
+      "fuel": {
+        "current": 1200,
+        "capacity": 1200,
+        "consumed": {
+          "amount": 0,
+          "timestamp": "2023-06-26T01:32:11.909Z"
+        }
+      },
+      "frame": {
+        "symbol": "FRAME_FRIGATE",
+        "name": "Frame Frigate",
+        "description": "A medium-sized, multi-purpose spacecraft, often used for combat, transport, or support operations.",
+        "moduleSlots": 8,
+        "mountingPoints": 5,
+        "fuelCapacity": 1200,
+        "condition": 100,
+        "requirements": {
+          "power": 8,
+          "crew": 25
+        }
+      },
+      "reactor": {
+        "symbol": "REACTOR_FISSION_I",
+        "name": "Fission Reactor I",
+        "description": "A basic fission power reactor, used to generate electricity from nuclear fission reactions.",
+        "condition": 100,
+        "powerOutput": 31,
+        "requirements": {
+          "crew": 8
+        }
+      },
+      "engine": {
+        "symbol": "ENGINE_ION_DRIVE_II",
+        "name": "Ion Drive II",
+        "description": "An advanced propulsion system that uses ionized particles to generate high-speed, low-thrust acceleration, with improved efficiency and performance.",
+        "condition": 100,
+        "speed": 30,
+        "requirements": {
+          "power": 6,
+          "crew": 8
+        }
+      },
+      "modules": [
+        {
+          "symbol": "MODULE_CARGO_HOLD_I",
+          "name": "Cargo Hold",
+          "description": "A module that increases a ship's cargo capacity.",
+          "capacity": 30,
+          "requirements": {
+            "crew": 0,
+            "power": 1,
+            "slots": 1
+          }
+        },
+        {
+          "symbol": "MODULE_CARGO_HOLD_I",
+          "name": "Cargo Hold",
+          "description": "A module that increases a ship's cargo capacity.",
+          "capacity": 30,
+          "requirements": {
+            "crew": 0,
+            "power": 1,
+            "slots": 1
+          }
+        },
+        {
+          "symbol": "MODULE_CREW_QUARTERS_I",
+          "name": "Crew Quarters",
+          "description": "A module that provides living space and amenities for the crew.",
+          "capacity": 40,
+          "requirements": {
+            "crew": 2,
+            "power": 1,
+            "slots": 1
+          }
+        },
+        {
+          "symbol": "MODULE_CREW_QUARTERS_I",
+          "name": "Crew Quarters",
+          "description": "A module that provides living space and amenities for the crew.",
+          "capacity": 40,
+          "requirements": {
+            "crew": 2,
+            "power": 1,
+            "slots": 1
+          }
+        },
+        {
+          "symbol": "MODULE_MINERAL_PROCESSOR_I",
+          "name": "Mineral Processor",
+          "description": "Crushes and processes extracted minerals and ores into their component parts, filters out impurities, and containerizes them into raw storage units.",
+          "requirements": {
+            "crew": 0,
+            "power": 1,
+            "slots": 2
+          }
+        },
+        {
+          "symbol": "MODULE_JUMP_DRIVE_I",
+          "name": "Jump Drive I",
+          "description": "A basic antimatter jump drive that allows for instantaneous short-range interdimensional travel.",
+          "range": 500,
+          "requirements": {
+            "crew": 10,
+            "power": 4,
+            "slots": 1
+          }
+        },
+        {
+          "symbol": "MODULE_WARP_DRIVE_I",
+          "name": "Warp Drive I",
+          "description": "A basic warp drive that allows for short-range interstellar travel.",
+          "range": 2000,
+          "requirements": {
+            "crew": 2,
+            "power": 3,
+            "slots": 1
+          }
+        }
+      ],
+      "mounts": [
+        {
+          "symbol": "MOUNT_SENSOR_ARRAY_I",
+          "name": "Sensor Array I",
+          "description": "A basic sensor array that improves a ship's ability to detect and track other objects in space.",
+          "strength": 1,
+          "requirements": {
+            "crew": 0,
+            "power": 1
+          }
+        },
+        {
+          "symbol": "MOUNT_MINING_LASER_I",
+          "name": "Mining Laser I",
+          "description": "A basic mining laser that can be used to extract valuable minerals from asteroids and other space objects.",
+          "strength": 10,
+          "requirements": {
+            "crew": 0,
+            "power": 1
+          }
+        },
+        {
+          "symbol": "MOUNT_SURVEYOR_I",
+          "name": "Surveyor I",
+          "description": "A basic survey probe that can be used to gather information about a mineral deposit.",
+          "strength": 1,
+          "deposits": [
+            "QUARTZ_SAND",
+            "SILICON_CRYSTALS",
+            "PRECIOUS_STONES",
+            "ICE_WATER",
+            "AMMONIA_ICE",
+            "IRON_ORE",
+            "COPPER_ORE",
+            "SILVER_ORE",
+            "ALUMINUM_ORE",
+            "GOLD_ORE",
+            "PLATINUM_ORE"
+          ],
+          "requirements": {
+            "crew": 2,
+            "power": 1
+          }
+        }
+      ],
+      "registration": {
+        "name": "SHR1MPY-1",
+        "factionSymbol": "ECHO",
+        "role": "COMMAND"
+      },
+      "cargo": {
+        "capacity": 60,
+        "units": 0,
+        "inventory": []
       }
-    },
-    "frame": {
-      "symbol": "FRAME_FRIGATE",
-      "name": "Frame Frigate",
-      "description": "A medium-sized, multi-purpose spacecraft, often used for combat, transport, or support operations.",
-      "moduleSlots": 8,
-      "mountingPoints": 5,
-      "fuelCapacity": 1200,
-      "condition": 100,
-      "requirements": {
-        "power": 8,
-        "crew": 25
-      }
-    },
-    "reactor": {
-      "symbol": "REACTOR_FISSION_I",
-      "name": "Fission Reactor I",
-      "description": "A basic fission power reactor, used to generate electricity from nuclear fission reactions.",
-      "condition": 100,
-      "powerOutput": 31,
-      "requirements": {
-        "crew": 8
-      }
-    },
-    "engine": {
-      "symbol": "ENGINE_ION_DRIVE_II",
-      "name": "Ion Drive II",
-      "description": "An advanced propulsion system that uses ionized particles to generate high-speed, low-thrust acceleration, with improved efficiency and performance.",
-      "condition": 100,
-      "speed": 30,
-      "requirements": {
-        "power": 6,
-        "crew": 8
-      }
-    },
-    "modules": [
-      {
-        "symbol": "MODULE_CARGO_HOLD_I",
-        "name": "Cargo Hold",
-        "description": "A module that increases a ship's cargo capacity.",
-        "capacity": 30,
-        "requirements": {
-          "crew": 0,
-          "power": 1,
-          "slots": 1
-        }
-      },
-      {
-        "symbol": "MODULE_CARGO_HOLD_I",
-        "name": "Cargo Hold",
-        "description": "A module that increases a ship's cargo capacity.",
-        "capacity": 30,
-        "requirements": {
-          "crew": 0,
-          "power": 1,
-          "slots": 1
-        }
-      },
-      {
-        "symbol": "MODULE_CREW_QUARTERS_I",
-        "name": "Crew Quarters",
-        "description": "A module that provides living space and amenities for the crew.",
-        "capacity": 40,
-        "requirements": {
-          "crew": 2,
-          "power": 1,
-          "slots": 1
-        }
-      },
-      {
-        "symbol": "MODULE_CREW_QUARTERS_I",
-        "name": "Crew Quarters",
-        "description": "A module that provides living space and amenities for the crew.",
-        "capacity": 40,
-        "requirements": {
-          "crew": 2,
-          "power": 1,
-          "slots": 1
-        }
-      },
-      {
-        "symbol": "MODULE_MINERAL_PROCESSOR_I",
-        "name": "Mineral Processor",
-        "description": "Crushes and processes extracted minerals and ores into their component parts, filters out impurities, and containerizes them into raw storage units.",
-        "requirements": {
-          "crew": 0,
-          "power": 1,
-          "slots": 2
-        }
-      },
-      {
-        "symbol": "MODULE_JUMP_DRIVE_I",
-        "name": "Jump Drive I",
-        "description": "A basic antimatter jump drive that allows for instantaneous short-range interdimensional travel.",
-        "range": 500,
-        "requirements": {
-          "crew": 10,
-          "power": 4,
-          "slots": 1
-        }
-      },
-      {
-        "symbol": "MODULE_WARP_DRIVE_I",
-        "name": "Warp Drive I",
-        "description": "A basic warp drive that allows for short-range interstellar travel.",
-        "range": 2000,
-        "requirements": {
-          "crew": 2,
-          "power": 3,
-          "slots": 1
-        }
-      }
-    ],
-    "mounts": [
-      {
-        "symbol": "MOUNT_SENSOR_ARRAY_I",
-        "name": "Sensor Array I",
-        "description": "A basic sensor array that improves a ship's ability to detect and track other objects in space.",
-        "strength": 1,
-        "requirements": {
-          "crew": 0,
-          "power": 1
-        }
-      },
-      {
-        "symbol": "MOUNT_MINING_LASER_I",
-        "name": "Mining Laser I",
-        "description": "A basic mining laser that can be used to extract valuable minerals from asteroids and other space objects.",
-        "strength": 10,
-        "requirements": {
-          "crew": 0,
-          "power": 1
-        }
-      },
-      {
-        "symbol": "MOUNT_SURVEYOR_I",
-        "name": "Surveyor I",
-        "description": "A basic survey probe that can be used to gather information about a mineral deposit.",
-        "strength": 1,
-        "deposits": [
-          "QUARTZ_SAND",
-          "SILICON_CRYSTALS",
-          "PRECIOUS_STONES",
-          "ICE_WATER",
-          "AMMONIA_ICE",
-          "IRON_ORE",
-          "COPPER_ORE",
-          "SILVER_ORE",
-          "ALUMINUM_ORE",
-          "GOLD_ORE",
-          "PLATINUM_ORE"
-        ],
-        "requirements": {
-          "crew": 2,
-          "power": 1
-        }
-      }
-    ],
-    "registration": {
-      "name": "SHR1MPY-1",
-      "factionSymbol": "COSMIC",
-      "role": "COMMAND"
-    },
-    "cargo": {
-      "capacity": 60,
-      "units": 0,
-      "inventory": []
     }
   }
 }
@@ -533,6 +535,79 @@ const contractsData = {
     "total": 1,
     "page": 1,
     "limit": 10
+  }
+}
+
+const systemData = {
+  "data": {
+    "symbol": "X1-TX94",
+    "sectorSymbol": "X1",
+    "type": "RED_STAR",
+    "x": 9547,
+    "y": 30275,
+    "waypoints": [
+      {
+        "symbol": "X1-TX94-21551C",
+        "type": "PLANET",
+        "x": -13,
+        "y": 9
+      },
+      {
+        "symbol": "X1-TX94-77250C",
+        "type": "PLANET",
+        "x": 8,
+        "y": 23
+      },
+      {
+        "symbol": "X1-TX94-85842E",
+        "type": "MOON",
+        "x": 8,
+        "y": 23
+      },
+      {
+        "symbol": "X1-TX94-26213E",
+        "type": "MOON",
+        "x": 8,
+        "y": 23
+      },
+      {
+        "symbol": "X1-TX94-01934B",
+        "type": "MOON",
+        "x": 8,
+        "y": 23
+      },
+      {
+        "symbol": "X1-TX94-75475D",
+        "type": "ASTEROID_FIELD",
+        "x": -35,
+        "y": -19
+      },
+      {
+        "symbol": "X1-TX94-65796F",
+        "type": "GAS_GIANT",
+        "x": -4,
+        "y": -51
+      },
+      {
+        "symbol": "X1-TX94-14277C",
+        "type": "ORBITAL_STATION",
+        "x": -4,
+        "y": -51
+      },
+      {
+        "symbol": "X1-TX94-47638B",
+        "type": "PLANET",
+        "x": -52,
+        "y": 42
+      },
+      {
+        "symbol": "X1-TX94-43479C",
+        "type": "JUMP_GATE",
+        "x": -43,
+        "y": 46
+      }
+    ],
+    "factions": []
   }
 }
 

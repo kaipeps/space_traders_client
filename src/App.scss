@@ -1,12 +1,18 @@
 // styling variables
 
 // mixins
+@mixin border() {
+  border: 2px solid deepskyblue;
+  border-radius: 1em;
+  box-shadow: 0px 0px 3px deepskyblue,
+    0px 0px 3px deepskyblue inset;
+}
 
 // styles
 * {
-  box-sizing: border-box;
   text-align: center;
-  border: 1px solid red;
+  // box-sizing: border-box;
+  // border: 1px solid red;
 
   body {
     background-color: black;
@@ -18,22 +24,58 @@
     padding: 0.5vh;
   }
 
-  h2 {
-    margin: 0;
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0.25em;
   }
 
   .Fleet {
     .ShipCard {
-      border: 1px solid deepskyblue;
-      border-radius: 5px;
+      @include border;
       margin: 2vh;
-      box-shadow: 0px 0px 3px deepskyblue,
-        0px 0px 3px deepskyblue inset;
     }
   }
 
   .ShipMenu {
     display: grid;
-    grid-template-columns: 1.5fr 2fr 1.5fr;
+    grid-template-columns: 1fr 2fr 1fr;
+
+    .ship-left {
+      display: grid;
+      grid-template-rows: 1fr 2fr;
+      gap: 2vh;
+
+      .status,
+      .cargo {
+        @include border;
+      }
+    }
+
+    .ship-centre {
+      .nav {
+        margin-top: 2vh;
+
+        .waypoints {
+          @include border;
+          margin: 2vh;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          padding: 3vh;
+        }
+      }
+    }
+
+    .ship-right {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 2vh;
+
+      .modules,
+      .mounts {
+        @include border;
+      }
+    }
   }
 }
