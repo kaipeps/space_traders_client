@@ -16,25 +16,37 @@ $cm-dark-shade: #0b041e;
   }
 }
 
-@mixin neon-border($color) {
+@mixin neon-border() {
   border: 2px solid $cm-light-accent;
   border-radius: 1em;
+  padding: 0.5em 0;
   box-shadow: 0px 0px 3px $cm-light-accent,
     0px 0px 3px $cm-light-accent inset;
 }
 
 // styles
-body {
-  // * {
-  //   @include wireframing()
-  // }
 
+body {
+  height: 100vh;
   box-sizing: border-box;
   padding: 0.5em;
   text-align: center;
   font-family: 'Roboto Mono';
   background-color: $cm-dark-shade;
   color: $cm-light-shade;
+  cursor: default;
+
+  // * {
+  //   @include wireframing()
+  // }
+
+  .txt-accent {
+    color: $cm-dark-accent;
+  }
+
+  #root {
+    height: 100%;
+  }
 
   h1,
   h2,
@@ -44,37 +56,64 @@ body {
     margin: 0.25em;
   }
 
-  a {
-    color: $cm-light-accent
+  p {
+    margin: 0.5em;
   }
 
-  a:hover {
-    color: $cm-light-hover
+  a,
+  .action {
+    color: $cm-light-accent;
+    text-decoration: underline;
+    cursor: pointer;
   }
 
-  .txt-accent {
-    color: $cm-dark-accent;
+  a:hover,
+  .action:hover {
+    color: $cm-light-hover;
   }
 
-  main {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
+  .Entry {
+    font-size: 1.4rem;
 
-    .Fleet {
-      .ships {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1em;
+    fieldset {
+      border: none;
 
-        .ShipCard {
-          @include neon-border($cm-light-accent);
-          padding: 0.5em;
+      input,
+      select {
+        @include neon-border();
+        background: $cm-dark-shade;
+        font-size: 0.8em;
+        font-family: inherit;
+        color: $cm-light-shade;
+        text-align: center;
+        padding: 0.2em;
+        appearance: none;
+      }
+    }
+  }
+
+  .Home {
+    main {
+      display: grid;
+      grid-template-columns: 1.5fr 2fr;
+
+      .Fleet {
+        .ships {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1em;
+
+          .ShipCard {
+            @include neon-border();
+            padding: 0.5em;
+          }
         }
       }
     }
   }
 
   .ShipMenu {
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 2.5fr 1fr;
 
@@ -83,9 +122,9 @@ body {
       grid-template-rows: 1fr 2fr;
       gap: 1em;
 
-      .status,
-      .cargo {
-        @include neon-border($cm-light-accent);
+      .Status,
+      .Cargo {
+        @include neon-border();
 
         .inventory {
           margin-top: 0.5em;
@@ -98,19 +137,53 @@ body {
     }
 
     .ship-centre {
-      .nav {
+      .interactions {
         margin-top: 1em;
 
-        .waypoints {
-          @include neon-border($cm-light-accent);
-          margin: 1em;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 1em;
-          padding: 1em;
+        .Nav {
+          .waypoints {
+            @include neon-border();
+            margin: 1em;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+            padding: 1em;
 
-          .waypoint {
-            text-align: center;
+            .waypoint {
+              text-align: center;
+            }
+          }
+        }
+
+        .Waypoint {
+          .waypoint-readout {
+            @include neon-border();
+            margin: 1em;
+            padding: 0.5em;
+            display: grid;
+            grid-template-columns: 1.5fr 2fr 1.5fr;
+
+            ul {
+              list-style: none;
+              padding: 0px;
+              margin: 0.5em 0;
+
+              li {
+                margin: 0.5em 0;
+              }
+            }
+          }
+        }
+
+        .Marketplace {
+          .market-details {
+            @include neon-border();
+            margin: 1em;
+
+            .grid-list {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+            }
           }
         }
       }
@@ -121,12 +194,12 @@ body {
       grid-template-rows: 1fr 1fr;
       gap: 1em;
 
-      .modules,
-      .mounts {
-        @include neon-border($cm-light-accent);
+      .Modules,
+      .Mounts {
+        @include neon-border();
 
-        .module,
-        .mount {
+        .Module,
+        .Mount {
           margin-bottom: 0.25em;
         }
       }

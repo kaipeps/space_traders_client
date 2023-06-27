@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import ContractCard from "../ObjectCards/ContractCard";
+import Contract from "../../Pages/Contract";
+import ContractCard from "../../ObjectCards/ContractCard";
 
-export default function Agent({ exampleData }) {
-  const { agent, contracts } = exampleData;
+export default function Agent({ agent, contracts }) {
   return (
     <div className="Agent">
       <header>
@@ -12,12 +12,7 @@ export default function Agent({ exampleData }) {
         <h2>Credits: ᖬ{agent.credits}</h2>
       </header>
       <section className="contracts">
-        <h2>Contracts:</h2>
-        {contracts.map((contract, idx) => (
-          <Link key={idx} to="/contract">
-            <ContractCard contract={contract} />
-          </Link>
-        ))}
+        <Contract contract={contracts[0]} />
       </section>
     </div>
   );

@@ -2,11 +2,10 @@ const formatDate = isoString => {
   const date = new Date(isoString);
   const timeOptions = { hour: '2-digit', minute: 'numeric', hour12: false };
   const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-  return `${date.toLocaleString('en-us', timeOptions)} ${date.toLocaleString('en-us', dateOptions)}`
+  return `${date.toLocaleString('en-us', timeOptions)} ${date.toLocaleString('en-us', dateOptions)}`;
 };
 
-export default function Contract({ exampleData }) {
-  const [contract] = exampleData.contracts
+export default function Contract({ contract }) {
   return (
     <div className="Contract">
       <header>
@@ -35,5 +34,5 @@ export default function Contract({ exampleData }) {
         ))}
       </section>
     </div>
-  )
-}
+  );
+};
