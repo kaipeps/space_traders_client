@@ -20,14 +20,14 @@ export default function Entry({ bearerAuth, setBearerAuth }) {
         body: JSON.stringify({ faction, symbol })
       };
 
-      try {
-        const response = await fetch(url, options);
-        const data = await response.json();
-        // set Bearer and navigate to Home
-        console.log(data)
-      } catch (error) {
-        // on error, create modal box to display
-      }
+      // try {
+      //   const response = await fetch(url, options);
+      //   const data = await response.json();
+      //   // set Bearer and navigate to Home
+      //   console.log(data)
+      // } catch (error) {
+      //   // on error, create modal box to display
+      // }
     }
   };
 
