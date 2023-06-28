@@ -6,8 +6,7 @@ import WaypointCard from "../../ObjectCards/WaypointCard";
 export default function Nav() {
   const [loadStatus, setLoadStatus] = useState('waiting');
   const { state } = useLocation();
-  console.log(state)
-  const [system, setSystem] = useState('');
+  const [waypoints, setWaypoints] = useState('');
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -17,11 +16,10 @@ export default function Nav() {
       }
     };
 
-    fetch(`${process.env.REACT_APP_URL_BASE}/systems/${state.systemSymbol}`, options)
+    fetch(`${process.env.REACT_APP_URL_BASE}/systems/${state.systemSymbol}/waypoints`, options)
       .then(res => res.json())
-      .then(systemData => {
-        console.log(systemData)
-        setSystem(systemData.data);
+      .then(waypointsData => {
+        setWaypoints(waypointsData.data);
         setLoadStatus('ready');
       });
   }, [])
@@ -32,7 +30,7 @@ export default function Nav() {
       <div className="Nav">
         <h2>Available waypoints for travel:</h2>
         <div className="waypoints">
-          {system.waypoints.map((waypoint, idx) => (
+          {waypoints.map((waypoint, idx) => (
             <WaypointCard key={idx} waypoint={waypoint} />
           ))}
         </div>

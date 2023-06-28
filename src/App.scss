@@ -80,12 +80,12 @@ body {
   .action {
     color: $light-accent;
     text-decoration: underline;
-    cursor: pointer;
   }
 
   a:hover,
   .action:hover {
     color: $light-hover;
+    cursor: pointer;
   }
 
   .Entry {
