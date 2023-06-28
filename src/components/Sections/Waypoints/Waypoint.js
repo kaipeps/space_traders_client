@@ -35,11 +35,10 @@ async function handleDocking(status, ship, setShip) {
   };
   const res = await fetch(`https://api.spacetraders.io/v2/my/ships/${ship.symbol}/${status}`, options)
   const response = await res.json()
-  console.log(response)
-  const { nav } = response.data
   if (response.error) {
     console.log(`Error ${response.error.code}: ${response.error.message}`)
   } else {
+    const { nav } = response.data
     const { nav: oldNav, ...everythingElse } = ship
     setShip({ nav, ...everythingElse })
   }
@@ -77,15 +76,17 @@ export default function Waypoint() {
         <section className="actions">
           <h2 className="txt-accent">Actions</h2>
           <ul>
-            {ship.nav.status !== 'IN_TRANSIT' ? <p className="action" onClick={() => setSection('navigate')} >
+            {ship.nav.status === 'IN_ORBIT' ? <p className="action" onClick={() => setSection('navigate')} >
               Navigate
             </p> : ''}
-            {traitSymbols.includes('MARKETPLACE') ? <p className="action" onClick={() => setSection('marketplace')} >
-              View Market Details
-            </p> : ''}
-            {traitSymbols.includes('SHIPYARD') ? <p className="action" onClick={() => setSection('shipyard')} >
-              View Shipyard Details
-            </p> : ''}
+            {traitSymbols.includes('MARKETPLACE') && ship.nav.status === 'DOCKED' ?
+              <p className="action" onClick={() => setSection('marketplace')} >
+                View Market Details
+              </p> : ''}
+            {traitSymbols.includes('SHIPYARD') && ship.nav.status === 'DOCKED' ?
+              <p className="action" onClick={() => setSection('shipyard')} >
+                View Shipyard Details
+              </p> : ''}
             {waypoint.type === 'ASTEROID_FIELD' ? <p className="action" onClick={() => handleExtraction(ship, setShip)} >
               <span>Extract Resources</span>
             </p> : ''}

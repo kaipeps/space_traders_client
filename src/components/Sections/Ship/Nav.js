@@ -15,10 +15,10 @@ async function handleNavigation(ship, setShip, waypointSymbol) {
   };
   const res = await fetch(`https://api.spacetraders.io/v2/my/ships/${ship.symbol}/navigate`, options)
   const response = await res.json()
-  const { nav, fuel } = response.data
   if (response.error) {
     console.log(`Error ${response.error.code}: ${response.error.message}`)
   } else {
+    const { nav, fuel } = response.data
     const { nav: oldNav, fuel: oldFuel, ...everythingElse } = ship
     setShip({ nav, fuel, ...everythingElse })
   }
