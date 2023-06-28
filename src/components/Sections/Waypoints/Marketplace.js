@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import Loading from "../../Loading";
+import MarketGoodCard from "../../ObjectCards/MarketGoodCard";
+import { useContext } from "react";
+import { ShipContext } from "../../Pages/Ship";
 
 const collateGoods = ({ imports, exports, tradeGoods }) => {
   const importSymbols = imports.map(tradeImport => tradeImport.symbol);
@@ -23,20 +25,11 @@ const collateGoods = ({ imports, exports, tradeGoods }) => {
   return { imports, exports }
 };
 
-const returnTradeGoodJSX = (tradeGood, idx) => (
-  <section key={idx} className="export">
-    <p><span className="txt-accent">{tradeGood.name}</span> <br />
-      Supply: {tradeGood.supply} <br />
-      <span className="action">Buy</span> for: ᖬ{tradeGood.purchasePrice} <br />
-      <span className="action">Sell</span> For: ᖬ{tradeGood.sellPrice}</p>
-  </section>
-);
-
 export default function Marketplace() {
   const [imports, setImports] = useState([])
   const [exports, setExports] = useState([])
   const [loadStatus, setLoadStatus] = useState('waiting');
-  const { state } = useLocation();
+  const { ship, setSection } = useContext(ShipContext)
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -46,10 +39,10 @@ export default function Marketplace() {
       }
     };
 
-    fetch(`${process.env.REACT_APP_URL_BASE}/systems/${state.systemSymbol}/waypoints/${state.waypointSymbol}/market`, options)
+    fetch(`https://api.spacetraders.io/v2/systems/${ship.nav.systemSymbol}/waypoints/${ship.nav.waypointSymbol}/market`, options)
       .then(res => res.json())
-      .then(marketplaceData => {
-        const { imports, exports } = collateGoods(marketplaceData.data)
+      .then(response => {
+        const { imports, exports } = collateGoods(response.data)
         setImports(imports)
         setExports(exports)
         setLoadStatus('ready');
@@ -60,19 +53,22 @@ export default function Marketplace() {
   } else if (loadStatus === 'ready') {
     return (
       <div className="Marketplace">
-        <h2>Waypoint <span className="txt-accent">{state.waypointSymbol}</span> Market Details</h2>
+        <h2>
+          Waypoint Marketplace Details: <br />
+          <span className="action" onClick={() => setSection('waypoint')}>(Back)</span>
+        </h2>
         <section className="market-details">
           <section className="imports-exports">
             <section className="imports">
               <h3 className="txt-accent">Imports</h3>
               <section className="grid-list">
-                {imports.map((tradeGood, idx) => returnTradeGoodJSX(tradeGood, idx))}
+                {imports.map((tradeGood, idx) => <MarketGoodCard key={idx} tradeGood={tradeGood} />)}
               </section>
             </section>
             <section className="exports">
               <h3 className="txt-accent">Exports</h3>
               <section className="grid-list">
-                {exports.map((tradeGood, idx) => returnTradeGoodJSX(tradeGood, idx))}
+                {exports.map((tradeGood, idx) => <MarketGoodCard key={idx} tradeGood={tradeGood} />)}
               </section>
             </section>
           </section>

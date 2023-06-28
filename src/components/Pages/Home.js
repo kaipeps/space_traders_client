@@ -6,7 +6,6 @@ import Fleet from '../Sections/Main/Fleet';
 export default function Home() {
   const [loadStatus, setLoadStatus] = useState('waiting');
   const [agent, setAgent] = useState({});
-  const [contracts, setContracts] = useState([]);
   const [fleet, setFleet] = useState([]);
   useEffect(() => {
     const options = {
@@ -17,13 +16,12 @@ export default function Home() {
       }
     };
 
-    const agentJsonPromise = fetch(`${process.env.REACT_APP_URL_BASE}/my/agent`, options).then(res => res.json());
-    const contractsJsonPromise = fetch(`${process.env.REACT_APP_URL_BASE}/my/contracts`, options).then(res => res.json());
-    const fleetJsonPromise = fetch(`${process.env.REACT_APP_URL_BASE}/my/ships`, options).then(res => res.json());
+    const agentJsonPromise = fetch('https://api.spacetraders.io/v2/my/agent', options).then(res => res.json());
+    const contractsJsonPromise = fetch('https://api.spacetraders.io/v2/my/contracts', options).then(res => res.json());
+    const fleetJsonPromise = fetch('https://api.spacetraders.io/v2/my/ships', options).then(res => res.json());
 
     Promise.all([agentJsonPromise, contractsJsonPromise, fleetJsonPromise]).then(([agentData, contractsData, fleetData]) => {
-      setAgent(agentData.data)
-      setContracts(contractsData.data)
+      setAgent({ ...agentData.data, contracts: contractsData.data })
       setFleet(fleetData.data)
       setLoadStatus('ready')
     })
@@ -37,8 +35,8 @@ export default function Home() {
           <h1>Welcome, Agent {agent.symbol}</h1>
         </header>
         <main>
-          <Agent agent={agent} contracts={contracts} />
-          <Fleet fleetData={fleet} />
+          <Agent agent={agent} />
+          <Fleet fleet={fleet} />
         </main>
       </div>
     );

@@ -6,6 +6,7 @@ $mid-accent: #e2aa42;
 $dark-accent: #e4598e;
 $dark-shade: #1f0729;
 $dark-shade-translucent: rgba(31, 7, 41, 0.8);
+$dark-shade-translucent-hover: rgba(55, 15, 72, 0.8);
 // Potential background images:
 // Alien Iso - Light: https://i.pinimg.com/originals/86/ff/e5/86ffe54df89ba439756c972125bd9b81.jpg
 // Alien Iso - Dark: https://wallpaperaccess.com/full/8098948.jpg
@@ -24,7 +25,7 @@ $dark-shade-translucent: rgba(31, 7, 41, 0.8);
 
 @mixin neon-border() {
   border: 2px solid $light-accent;
-  border-radius: 1em;
+  border-radius: 1rem;
   padding: 0.5em 0;
   background-color: $dark-shade-translucent;
   box-shadow: 0px 0px 3px $light-accent,
@@ -55,133 +56,165 @@ body {
     color: $mid-accent;
   }
 
+  .Tooltip {
+    header span {
+      font-size: 1.6em;
+    }
+
+    p {
+      font-size: 1.4em;
+      margin: 0.5em;
+    }
+  }
+
   #root {
     height: 100%;
-  }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: 'Rubik';
-    margin: 0.25em;
-  }
+    h1 {
+      font-family: 'Rubik';
+      font-size: 2em;
+      margin: 0;
+      padding: 0.25em;
+    }
 
-  .load-text {
-    color: $dark-shade;
-    margin: 40vh auto;
-  }
+    h2,
+    h3,
+    h4 {
+      font-family: 'Rubik';
+      margin: 0;
+      padding: 0.25em;
+    }
 
-  p {
-    margin: 0.5em;
-  }
+    .Loading {
+      padding-top: 20%;
 
-  a,
-  .action {
-    color: $light-accent;
-    text-decoration: underline;
-  }
+      .load-text {
+        @include neon-border();
+        width: 10em;
+        height: 2.5em;
+        margin: 0 auto;
+      }
+    }
 
-  a:hover,
-  .action:hover {
-    color: $light-hover;
-    cursor: pointer;
-  }
+    p {
+      margin: 0.5em;
+    }
 
-  .Entry {
-    font-size: 1.4rem;
-
-    form {
-      @include neon-border();
+    a,
+    .action {
+      color: $light-accent;
+      text-decoration: underline;
       width: fit-content;
-      padding: 1em 2em;
-      margin: 1em auto;
-
-      fieldset {
-        border: none;
-
-        input,
-        select {
-          @include neon-border();
-          background: $dark-shade;
-          font-size: 0.8em;
-          font-family: inherit;
-          color: $light-shade;
-          text-align: center;
-          padding: 0.2em;
-          appearance: none;
-        }
-      }
+      margin: 0 auto;
     }
-  }
 
-  .Home {
-    main {
-      padding: 1em 2em;
-      display: grid;
-      grid-template-columns: 1.5fr 2fr;
-      gap: 1em;
+    a:hover,
+    .action:hover {
+      color: $light-hover;
+      cursor: pointer;
+    }
 
-      .Agent {
+    .Entry {
+      font-size: 1.4rem;
+
+      form {
         @include neon-border();
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-      }
+        width: fit-content;
+        padding: 1em 2em;
+        margin: 1em auto;
 
-      .Fleet {
-        .ships {
-          padding-top: 1em;
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(250px, auto));
-          gap: 1em;
+        fieldset {
+          border: none;
 
-          .ShipCard {
+          input,
+          select {
             @include neon-border();
-            padding: 0.5em 1em;
+            background: $dark-shade;
+            font-size: 0.8em;
+            font-family: inherit;
+            color: $light-shade;
+            text-align: center;
+            padding: 0.2em;
+            appearance: none;
           }
         }
       }
     }
-  }
 
-  .ShipMenu {
-    padding: 0.5em 1em;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 2.5fr 1fr;
+    .Home {
+      main {
+        padding: 1em 2em;
+        display: flex;
+        gap: 1em;
 
-    .ship-left {
+        .Agent {
+          @include neon-border();
+          width: fit-content;
+          padding: 2em 4em;
+          padding-bottom: 4em;
+          display: flex;
+          flex-direction: column;
+          gap: 1em;
+        }
+
+        .Fleet {
+          @include neon-border();
+          padding: 1em 3em;
+          width: 100%;
+
+          .ships {
+            padding-top: 1em;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, auto));
+            gap: 1em;
+
+            .ShipCard {
+              @include neon-border();
+              padding: 1em 2em;
+            }
+          }
+        }
+      }
+    }
+
+    .ShipMenu {
+      padding: 0.5em 1em;
+      height: 100%;
       display: grid;
-      grid-template-rows: 1fr 2fr;
+      grid-template-columns: 1fr 2.5fr 1fr;
       gap: 1em;
 
-      .Status,
-      .Cargo {
-        @include neon-border();
+      .ship-left {
+        display: grid;
+        grid-template-rows: 1fr 2fr;
+        gap: 1em;
 
-        .inventory {
-          margin-top: 0.5em;
+        .Status,
+        .Cargo {
+          @include neon-border();
 
-          .item {
-            margin-bottom: 0.25em;
+          .inventory {
+            margin-top: 0.5em;
+
+            .item {
+              margin-bottom: 0.25em;
+            }
           }
         }
       }
-    }
 
-    .ship-centre {
-      .interactions {
-        margin-top: 1em;
-        height: 80%;
-
-        .Nav {
-          height: 100%;
+      .ship-centre {
+        .interactions {
+          @include neon-border();
+          margin-top: 1em;
+          padding: 1em;
+          height: 80%;
 
           .waypoints {
-            @include neon-border();
-            height: 100%;
+            height: 50vh;
+            overflow-y: auto;
             margin: 1em;
+            margin-top: 0;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, auto));
             gap: 1em;
@@ -194,55 +227,109 @@ body {
               align-self: center;
               justify-self: center;
             }
-          }
-        }
 
-        .Waypoint {
-          .waypoint-readout {
-            @include neon-border();
+            .WaypointCard:hover {
+              cursor: pointer;
+              background-color: $dark-shade-translucent-hover;
+            }
+          }
+
+          .Waypoint {
+            height: 60vh;
             margin: 1em;
             padding: 0.5em;
-            display: grid;
-            grid-template-columns: 1.5fr 2fr 1.5fr;
+            overflow-y: auto;
 
             ul {
               list-style: none;
               padding: 0px;
               margin: 0.5em 0;
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(220px, auto));
+              gap: 1em;
 
               li {
                 margin: 0.5em 0;
+                font-size: 1.2em;
+              }
+            }
+
+            .traits {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+            }
+          }
+
+          .Marketplace {
+            .market-details {
+              height: 50vh;
+              overflow-y: auto;
+              margin: 1em;
+
+              .grid-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+
+                .Counter {
+                  margin-top: 0.5em;
+
+                  button {
+                    background-color: $dark-shade;
+                    text-align: center;
+                    width: 1.4em;
+                    height: 1.4em;
+                    border-radius: 0.7em;
+                    padding: 0 0.2em;
+                  }
+
+                  .add {
+                    border: 1px solid #50b655;
+                    color: #50b655;
+                  }
+
+                  .subtract {
+                    border: 1px solid $dark-accent;
+                    color: $dark-accent;
+                  }
+
+                }
+
+                .count:hover {
+                  border: 1px solid $light-hover;
+                  color: $light-hover;
+                }
+              }
+            }
+          }
+
+          .Shipyard {
+            .available-ships {
+              height: 50vh;
+              overflow-y: auto;
+              margin: 1em;
+
+              .grid-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, auto));
               }
             }
           }
         }
-
-        .Marketplace {
-          .market-details {
-            @include neon-border();
-            margin: 1em;
-
-            .grid-list {
-              display: grid;
-              grid-template-columns: repeat(auto-fill, minmax(200px, auto));
-            }
-          }
-        }
       }
-    }
 
-    .ship-right {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 1em;
+      .ship-right {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 1em;
 
-      .Modules,
-      .Mounts {
-        @include neon-border();
+        .Modules,
+        .Mounts {
+          @include neon-border();
 
-        .Module,
-        .Mount {
-          margin-bottom: 0.25em;
+          .Module,
+          .Mount {
+            margin-bottom: 0.25em;
+          }
         }
       }
     }

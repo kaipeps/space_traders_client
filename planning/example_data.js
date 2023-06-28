@@ -2790,13 +2790,12 @@ const scanResults = {
   }
 }
 
-const factionsData = [
-  // Cosmic Engineers
+factions = [
   {
     "symbol": "COSMIC",
     "name": "Cosmic Engineers",
     "description": "The Cosmic Engineers are a group of highly advanced scientists and engineers who seek to terraform and colonize new worlds, pushing the boundaries of technology and exploration.",
-    "headquarters": "X1-VS75-70500X",
+    "headquarters": "X1-YU85-99640B",
     "traits": [
       {
         "symbol": "INNOVATIVE",
@@ -2821,12 +2820,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Voidfarers
   {
     "symbol": "VOID",
     "name": "Voidfarers",
     "description": "The Voidfarers are a group of nomadic traders and adventurers who travel the galaxy in search of riches and adventure, willing to take risks and explore the unknown.",
-    "headquarters": "X1-UU2-19890D",
+    "headquarters": "X1-FY6-28680D",
     "traits": [
       {
         "symbol": "DARING",
@@ -2851,12 +2849,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Galactic Alliance
   {
     "symbol": "GALACTIC",
     "name": "Galactic Alliance",
     "description": "The Galactic Alliance is a coalition of planets and factions that have banded together for mutual protection and support, working together to defend against external threats and promote cooperation.",
-    "headquarters": "X1-GZ3-79230X",
+    "headquarters": "X1-VR14-43680Z",
     "traits": [
       {
         "symbol": "COOPERATIVE",
@@ -2881,12 +2878,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Quantum Federation
   {
     "symbol": "QUANTUM",
     "name": "Quantum Federation",
     "description": "The Quantum Federation is a group of planets and factions that have joined together to share knowledge and technology, using their collective expertise to advance the science and technology of the galaxy.",
-    "headquarters": "X1-NU19-03110X",
+    "headquarters": "X1-ZS57-64950Z",
     "traits": [
       {
         "symbol": "INTELLIGENT",
@@ -2911,12 +2907,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Stellar Dominion
   {
     "symbol": "DOMINION",
     "name": "Stellar Dominion",
     "description": "The Stellar Dominion is a powerful, expansionist faction that seeks to conquer and control as many systems as possible, using their advanced technology and military might to dominate their rivals.",
-    "headquarters": "X1-PD90-13080E",
+    "headquarters": "X1-UR47-29080C",
     "traits": [
       {
         "symbol": "MILITARISTIC",
@@ -2941,12 +2936,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Astro-Salvage Alliance
   {
     "symbol": "ASTRO",
     "name": "Astro-Salvage Alliance",
     "description": "The Astro-Salvage Alliance is a group of scavengers and salvagers who search the galaxy for ancient artifacts and valuable technology, often combing through old ship battlegrounds and derelict space stations.",
-    "headquarters": "X1-UY52-65040C",
+    "headquarters": "X1-PC86-64140E",
     "traits": [
       {
         "symbol": "SCAVENGERS",
@@ -2971,12 +2965,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Seventh Space Corsairs
   {
     "symbol": "CORSAIRS",
     "name": "Seventh Space Corsairs",
     "description": "The Seventh Space Corsairs are a feared group of pirates and raiders who operate throughout the galaxy, preying on merchant ships and plundering valuable cargo.",
-    "headquarters": "X1-FH73-86300Z",
+    "headquarters": "X1-RU52-61270D",
     "traits": [
       {
         "symbol": "UNPREDICTABLE",
@@ -3001,12 +2994,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Obsidian Syndicate
   {
     "symbol": "OBSIDIAN",
     "name": "Obsidian Syndicate",
     "description": "The Obsidian Syndicate is a secretive and powerful organization, often involved in illicit activities. They have a vast network of informants and are known for their intelligence capabilities. Not much is known about their actual structure or aims, as they are a highly guarded faction.",
-    "headquarters": "X1-XN74-95220D",
+    "headquarters": "X1-FB23-83310D",
     "traits": [
       {
         "symbol": "SECRETIVE",
@@ -3031,12 +3023,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Aegis Collective
   {
     "symbol": "AEGIS",
     "name": "Aegis Collective",
     "description": "The Aegis Collective is a group of fortified settlements united under a common goal: survival. They focus on defensive strategies and are known to be exceptionally self-sufficient. Despite their somewhat closed-off nature, they are always willing to take in those who need protection.",
-    "headquarters": "X1-XV41-93720X",
+    "headquarters": "X1-MQ58-33390B",
     "traits": [
       {
         "symbol": "DEFENSIVE",
@@ -3061,12 +3052,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // United Independent Settlements
   {
     "symbol": "UNITED",
     "name": "United Independent Settlements",
     "description": "The United Independent Settlements is a loose coalition of small settlements and outposts that have joined together for mutual support and protection, working to defend their independence against larger factions and protect their way of life.",
-    "headquarters": "X1-PC16-03900D",
+    "headquarters": "X1-D13-13370B",
     "traits": [
       {
         "symbol": "SELF_SUFFICIENT",
@@ -3091,12 +3081,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Solitary Systems Alliance
   {
     "symbol": "SOLITARY",
     "name": "Solitary Systems Alliance",
     "description": "The Solitary Systems Alliance is a loosely-connected group of independent settlements and outposts that have joined together to promote their own interests and protect their autonomy, even if they don't always see eye-to-eye.",
-    "headquarters": "X1-RZ25-67170E",
+    "headquarters": "X1-AK92-10370Z",
     "traits": [
       {
         "symbol": "INDEPENDENT",
@@ -3121,12 +3110,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Cobalt Traders Alliance
   {
     "symbol": "COBALT",
     "name": "Cobalt Traders Alliance",
     "description": "The Cobalt Traders Alliance is a group of independent traders and merchants who have come together to promote free trade and open markets, working to protect their interests against larger factions and corporations.",
-    "headquarters": "X1-ZD8-18790A",
+    "headquarters": "X1-UA5-73930E",
     "traits": [
       {
         "symbol": "COMMERCIAL",
@@ -3151,12 +3139,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Omega Star Network
   {
     "symbol": "OMEGA",
     "name": "Omega Star Network",
     "description": "The Omega Star Network is a group of exiles and rebels, united by their refusal to submit to the control of larger factions. Living on the fringes of society, they have built a network based on mutual trust and the shared belief that freedom is paramount.",
-    "headquarters": "X1-ST51-44280Z",
+    "headquarters": "X1-ST72-07260B",
     "traits": [
       {
         "symbol": "REBELLIOUS",
@@ -3181,12 +3168,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Echo Technological Conclave
   {
     "symbol": "ECHO",
     "name": "Echo Technological Conclave",
     "description": "Echo Technological Conclave is an innovative and forward-thinking faction that thrives on technological advancement and scientific discovery. They have a deep commitment to progress and a drive to push the boundaries of what is possible, making them a force to be reckoned with.",
-    "headquarters": "X1-TU96-28190D",
+    "headquarters": "X1-TX94-77250C",
     "traits": [
       {
         "symbol": "INNOVATIVE",
@@ -3211,12 +3197,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Lords of the Void
   {
     "symbol": "LORDS",
     "name": "Lords of the Void",
     "description": "The Lords of the Void are a mysterious civilization who traverse the galaxy in search of knowledge and power, often using their advanced technology to their advantage.",
-    "headquarters": "X1-YG47-82000F",
+    "headquarters": "X1-DG77-38610B",
     "traits": [
       {
         "symbol": "SECRETIVE",
@@ -3241,12 +3226,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Cult of the Machine
   {
     "symbol": "CULT",
     "name": "Cult of the Machine",
     "description": "The Cult of the Machine is a fanatical group of religious zealots who worship technology and seek to use it to further their own aims, often disregarding the lives of others in pursuit of their own power.",
-    "headquarters": "X1-AS12-24090D",
+    "headquarters": "X1-FJ18-54920E",
     "traits": [
       {
         "symbol": "TECHNOLOGICALLY_ADVANCED",
@@ -3271,12 +3255,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Ancient Guardians
   {
     "symbol": "ANCIENTS",
     "name": "Ancient Guardians",
     "description": "The Ancient Guardians are a mysterious group of protectors who guard ancient artifacts and sites of power, often using their advanced technology and knowledge to protect against external threats.",
-    "headquarters": "X1-Y87-53650F",
+    "headquarters": "X1-FK9-63960Z",
     "traits": [
       {
         "symbol": "DEFENSIVE",
@@ -3301,12 +3284,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Shadow Stalkers
   {
     "symbol": "SHADOW",
     "name": "Shadow Stalkers",
     "description": "The Shadow Stalkers are a clandestine group, seemingly appearing and disappearing at will. Little is known about their actual motivations. Their ability to move without detection has sparked many rumors, some say they are interdimensional travelers.",
-    "headquarters": "X1-HF10-91220F",
+    "headquarters": "X1-RG48-59920X",
     "traits": [
       {
         "symbol": "SECRETIVE",
@@ -3331,12 +3313,11 @@ const factionsData = [
     ],
     "isRecruiting": true
   },
-  // Ethereal Enclave
   {
     "symbol": "ETHEREAL",
     "name": "Ethereal Enclave",
     "description": "The Ethereal Enclave is a faction that is said to have transcended physical existence. They are believed to possess great wisdom and mysterious abilities. The actual nature of the Enclave is subject to much speculation, and sightings of their representatives are rare and often dismissed as legends.",
-    "headquarters": "X1-SD96-25460E",
+    "headquarters": "X1-DK42-60470D",
     "traits": [
       {
         "symbol": "SECRETIVE",

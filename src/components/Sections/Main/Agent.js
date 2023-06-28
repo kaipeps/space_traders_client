@@ -1,6 +1,6 @@
 import Contract from "./Contract";
 
-export default function Agent({ agent, contracts }) {
+export default function Agent({ agent }) {
   return (
     <div className="Agent">
       <header>
@@ -9,7 +9,7 @@ export default function Agent({ agent, contracts }) {
         <h2><span className="txt-accent">Headquarters:</span> {agent.headquarters}</h2>
         <h2><span className="txt-accent">Credits:</span> <span style={{ color: '#59e47e' }}>ᖬ</span>{agent.credits}</h2>
       </header>
-      <Contract contract={contracts[0]} />
+      <Contract contract={agent.contracts[0]} />
     </div>
   );
 };

@@ -1,13 +1,55 @@
-import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { ShipContext } from "../../Pages/Ship";
 import Loading from "../../Loading";
 
+async function handleExtraction(ship, setShip, survey) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: sessionStorage.Authorization
+    },
+    body: survey ? JSON.stringify({ survey }) : undefined
+  };
+  const res = await fetch(`https://api.spacetraders.io/v2/my/ships/${ship.symbol}/extract`, options)
+  const response = await res.json()
+  console.log(response)
+  const { cargo } = response.data
+  if (response.error) {
+    console.log(`Error ${response.error.code}: ${response.error.message}`)
+  } else {
+    const { cargo: oldCargo, ...everythingElse } = ship
+    setShip({ cargo, ...everythingElse })
+  }
+};
+
+async function handleDocking(status, ship, setShip) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: sessionStorage.Authorization
+    }
+  };
+  const res = await fetch(`https://api.spacetraders.io/v2/my/ships/${ship.symbol}/${status}`, options)
+  const response = await res.json()
+  console.log(response)
+  const { nav } = response.data
+  if (response.error) {
+    console.log(`Error ${response.error.code}: ${response.error.message}`)
+  } else {
+    const { nav: oldNav, ...everythingElse } = ship
+    setShip({ nav, ...everythingElse })
+  }
+}
+
 export default function Waypoint() {
-  // const { exampleData } = useContext(GameContext);
-  // const { waypoint } = exampleData;
   const [waypoint, setWaypoint] = useState('');
   const [loadStatus, setLoadStatus] = useState('waiting');
-  const { state } = useLocation();
+  const { ship, setShip, setSection } = useContext(ShipContext)
+
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -16,63 +58,57 @@ export default function Waypoint() {
         Authorization: sessionStorage.Authorization
       }
     };
+    if (loadStatus !== 'ready') {
+      fetch(`https://api.spacetraders.io/v2/systems/${ship.nav.systemSymbol}/waypoints/${ship.nav.waypointSymbol}`, options)
+        .then(res => res.json())
+        .then(waypointData => {
+          setWaypoint(waypointData.data);
+          setLoadStatus('ready');
+        });
+    }
+  }, [loadStatus])
 
-    fetch(`${process.env.REACT_APP_URL_BASE}/systems/${state.nav.systemSymbol}/waypoints/${state.nav.waypointSymbol}`, options)
-      .then(res => res.json())
-      .then(waypointData => {
-        setWaypoint(waypointData.data);
-        setLoadStatus('ready');
-      });
-  }, [])
   if (loadStatus === 'waiting') {
     return <Loading />
   } else if (loadStatus === 'ready') {
+    const traitSymbols = waypoint.traits.map(trait => trait.symbol)
     return (
       <div className="Waypoint">
-        <h2>Current Waypoint: <span className="txt-accent">{waypoint.symbol}</span>, {waypoint.type}</h2>
-        <section className="waypoint-readout">
-          <section className="details">
-            <section className="co-ordinates">
-              <h3 className="txt-accent">Co-Ordinates</h3>
-              <span>X:{waypoint.x}, Y:{waypoint.y}</span>
+        <section className="actions">
+          <h2 className="txt-accent">Actions</h2>
+          <ul>
+            {ship.nav.status !== 'IN_TRANSIT' ? <p className="action" onClick={() => setSection('navigate')} >
+              Navigate
+            </p> : ''}
+            {traitSymbols.includes('MARKETPLACE') ? <p className="action" onClick={() => setSection('marketplace')} >
+              View Market Details
+            </p> : ''}
+            {traitSymbols.includes('SHIPYARD') ? <p className="action" onClick={() => setSection('shipyard')} >
+              View Shipyard Details
+            </p> : ''}
+            {waypoint.type === 'ASTEROID_FIELD' ? <p className="action" onClick={() => handleExtraction(ship, setShip)} >
+              <span>Extract Resources</span>
+            </p> : ''}
+            {ship.nav.status === 'DOCKED' ?
+              <p className="action" onClick={() => handleDocking('orbit', ship, setShip)} >
+                <span>Orbit at Waypoint</span>
+              </p>
+              : ship.nav.status === 'IN_ORBIT' ?
+                <p className="action" onClick={() => handleDocking('dock', ship, setShip)} >
+                  <span>Dock at Waypoint</span>
+                </p> : ''}
+          </ul>
+        </section>
+        <h2 className="txt-accent">Traits:</h2>
+        <section className="traits">
+          {waypoint.traits.map((trait, idx) => (
+            <section key={idx} className="trait">
+              <p>
+                <span className="txt-accent">{trait.name}</span> <br />
+                {trait.description}
+              </p>
             </section>
-            <section className="orbitals">
-              <h3 className="txt-accent">Orbitals</h3>
-              {waypoint.orbitals.map((orbital, idx) => (
-                <section key={idx} className="orbital">
-                  <p>{orbital.symbol}</p>
-                </section>
-              ))}
-            </section>
-          </section>
-          <section className="actions">
-            <h2 className="txt-accent">Actions</h2>
-            <ul>
-              <li>
-                <Link to="/ship/marketplace" state={{ systemSymbol: waypoint.systemSymbol, waypointSymbol: waypoint.symbol }}>View Market Details</Link>
-              </li>
-              <li>
-                <Link to="/ship/navigate" state={{ systemSymbol: waypoint.systemSymbol }}>Navigate</Link>
-              </li>
-              <li>
-                <span className="action">Extract Resources</span>
-              </li>
-              <li>
-                <span className="action">Scan Nearby Systems</span>
-              </li>
-              <li>
-                <span className="action">Scan Nearby Waypoints</span>
-              </li>
-            </ul>
-          </section>
-          <section className="traits">
-            <h3 className="txt-accent">Traits:</h3>
-            {waypoint.traits.map((trait, idx) => (
-              <section key={idx} className="trait">
-                <p>{trait.name}</p>
-              </section>
-            ))}
-          </section>
+          ))}
         </section>
       </div>
     );

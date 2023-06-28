@@ -1,9 +1,7 @@
-import { useContext, useState } from "react";
-import { GameContext } from "../Main";
+import { useState } from "react";
 
 export default function Entry({ setBearer }) {
   const [callsignContent, setCallsignContent] = useState('');
-  const { factions } = useContext(GameContext);
   async function handleFormSubmit(event) {
     event.preventDefault();
     const form = event.target;
