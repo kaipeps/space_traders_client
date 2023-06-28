@@ -1,19 +1,15 @@
-import { Link } from "react-router-dom";
-import Contract from "../../Pages/Contract";
-import ContractCard from "../../ObjectCards/ContractCard";
+import Contract from "./Contract";
 
 export default function Agent({ agent, contracts }) {
   return (
     <div className="Agent">
       <header>
         <h1>Agent {agent.symbol}</h1>
-        <h2>Faction: {agent.startingFaction}</h2>
-        <h2>Headquarters: {agent.headquarters}</h2>
-        <h2>Credits: ᖬ{agent.credits}</h2>
+        <h2><span className="txt-accent">Faction:</span> {agent.startingFaction}</h2>
+        <h2><span className="txt-accent">Headquarters:</span> {agent.headquarters}</h2>
+        <h2><span className="txt-accent">Credits:</span> <span style={{ color: '#59e47e' }}>ᖬ</span>{agent.credits}</h2>
       </header>
-      <section className="contracts">
-        <Contract contract={contracts[0]} />
-      </section>
+      <Contract contract={contracts[0]} />
     </div>
   );
 };

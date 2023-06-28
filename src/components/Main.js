@@ -1859,14 +1859,11 @@ const gameData = {
 };
 
 export const GameContext = createContext();
-export const BearerContext = createContext();
 export default function Main() {
-  const [bearerAuth, setBearerAuth] = useState('')
+  const [bearer, setBearer] = useState('');
   return (
     <GameContext.Provider value={gameData}>
-      <BearerContext.Provider value={bearerAuth}>
-        {!bearerAuth ? <Entry bearerAuth={bearerAuth} setBearerAuth={setBearerAuth} /> : <Outlet />}
-      </BearerContext.Provider>
+      {!sessionStorage.Authorization && !bearer ? <Entry setBearer={setBearer} /> : <Outlet />}
     </GameContext.Provider>
   )
 };

@@ -1,10 +1,16 @@
 // styling variables
-$cm-light-shade: #bfdfef;
-$cm-light-accent: #39bbea;
-$cm-light-hover: #67d5fc;
-$cm-main-brand: #2f3679;
-$cm-dark-accent: #e4598e;
-$cm-dark-shade: #0b041e;
+$light-shade: #bfdfef;
+$light-accent: #39bbea;
+$light-hover: #67d5fc;
+$mid-accent: #e2aa42;
+$dark-accent: #e4598e;
+$dark-shade: #1f0729;
+$dark-shade-translucent: rgba(31, 7, 41, 0.8);
+// Potential background images:
+// Alien Iso - Light: https://i.pinimg.com/originals/86/ff/e5/86ffe54df89ba439756c972125bd9b81.jpg
+// Alien Iso - Dark: https://wallpaperaccess.com/full/8098948.jpg
+// Retrowave Sunset - Pixels: https://art.ngfiles.com/images/2023000/2023807_snow8bits_pixel-vaporwave-wallpaper.png?f1629318089
+// Retrowave Sunset - Hi-Def: https://cdn.wallpapersafari.com/91/84/mCPu15.jpg
 
 // mixins
 @mixin wireframing() {
@@ -17,11 +23,12 @@ $cm-dark-shade: #0b041e;
 }
 
 @mixin neon-border() {
-  border: 2px solid $cm-light-accent;
+  border: 2px solid $light-accent;
   border-radius: 1em;
   padding: 0.5em 0;
-  box-shadow: 0px 0px 3px $cm-light-accent,
-    0px 0px 3px $cm-light-accent inset;
+  background-color: $dark-shade-translucent;
+  box-shadow: 0px 0px 3px $light-accent,
+    0px 0px 3px $light-accent inset;
 }
 
 // styles
@@ -32,16 +39,20 @@ body {
   padding: 0.5em;
   text-align: center;
   font-family: 'Roboto Mono';
-  background-color: $cm-dark-shade;
-  color: $cm-light-shade;
+  background-color: $dark-shade;
+  background-image: url(https://cdn.wallpapersafari.com/91/84/mCPu15.jpg);
+  background-position: center;
+  background-size: cover;
+  color: $light-shade;
   cursor: default;
 
-  // * {
-  //   @include wireframing()
-  // }
+  * {
+    box-sizing: border-box;
+    // @include wireframing()
+  }
 
   .txt-accent {
-    color: $cm-dark-accent;
+    color: $mid-accent;
   }
 
   #root {
@@ -56,56 +67,78 @@ body {
     margin: 0.25em;
   }
 
+  .load-text {
+    color: $dark-shade;
+    margin: 40vh auto;
+  }
+
   p {
     margin: 0.5em;
   }
 
   a,
   .action {
-    color: $cm-light-accent;
+    color: $light-accent;
     text-decoration: underline;
     cursor: pointer;
   }
 
   a:hover,
   .action:hover {
-    color: $cm-light-hover;
+    color: $light-hover;
   }
 
   .Entry {
     font-size: 1.4rem;
 
-    fieldset {
-      border: none;
+    form {
+      @include neon-border();
+      width: fit-content;
+      padding: 1em 2em;
+      margin: 1em auto;
 
-      input,
-      select {
-        @include neon-border();
-        background: $cm-dark-shade;
-        font-size: 0.8em;
-        font-family: inherit;
-        color: $cm-light-shade;
-        text-align: center;
-        padding: 0.2em;
-        appearance: none;
+      fieldset {
+        border: none;
+
+        input,
+        select {
+          @include neon-border();
+          background: $dark-shade;
+          font-size: 0.8em;
+          font-family: inherit;
+          color: $light-shade;
+          text-align: center;
+          padding: 0.2em;
+          appearance: none;
+        }
       }
     }
   }
 
   .Home {
     main {
+      padding: 1em 2em;
       display: grid;
       grid-template-columns: 1.5fr 2fr;
+      gap: 1em;
+
+      .Agent {
+        @include neon-border();
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+      }
 
       .Fleet {
         .ships {
+          padding-top: 1em;
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: repeat(auto-fill, minmax(250px, auto));
           gap: 1em;
 
           .ShipCard {
             @include neon-border();
-            padding: 0.5em;
+            padding: 0.5em 1em;
           }
         }
       }
@@ -113,6 +146,7 @@ body {
   }
 
   .ShipMenu {
+    padding: 0.5em 1em;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 2.5fr 1fr;
@@ -139,18 +173,26 @@ body {
     .ship-centre {
       .interactions {
         margin-top: 1em;
+        height: 80%;
 
         .Nav {
+          height: 100%;
+
           .waypoints {
             @include neon-border();
+            height: 100%;
             margin: 1em;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fill, minmax(250px, auto));
             gap: 1em;
             padding: 1em;
 
-            .waypoint {
+            .WaypointCard {
+              @include neon-border();
+              padding: 0.5em 1em;
               text-align: center;
+              align-self: center;
+              justify-self: center;
             }
           }
         }

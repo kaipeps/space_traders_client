@@ -1,16 +1,16 @@
 import { useContext, useState } from "react";
 import { GameContext } from "../Main";
 
-export default function Entry({ bearerAuth, setBearerAuth }) {
-  const [callsignContent, setCallsignContent] = useState('')
-  const { factions } = useContext(GameContext)
+export default function Entry({ setBearer }) {
+  const [callsignContent, setCallsignContent] = useState('');
+  const { factions } = useContext(GameContext);
   async function handleFormSubmit(event) {
     event.preventDefault();
-    const form = event.target
-    const { bearer, symbol, faction } = Object.fromEntries(new FormData(form))
-    console.log(bearer, symbol, faction)
+    const form = event.target;
+    const { bearer, symbol, faction } = Object.fromEntries(new FormData(form));
     if (bearer) {
-      setBearerAuth(bearer)
+      setBearer(`Bearer ${bearer}`)
+      sessionStorage.setItem('Authorization', `Bearer ${bearer}`);
     } else {
       // *HYPOTHETICAL* fetch to sign up.
       const url = 'https://api.spacetraders.io/v2/register';
@@ -32,9 +32,9 @@ export default function Entry({ bearerAuth, setBearerAuth }) {
   };
 
   const handleCallsignContentChange = event => {
-    const newContent = event.target.value.toUpperCase()
-    setCallsignContent(newContent)
-  }
+    const newContent = event.target.value.toUpperCase();
+    setCallsignContent(newContent);
+  };
 
   return (
     <div className="Entry">
@@ -49,7 +49,7 @@ export default function Entry({ bearerAuth, setBearerAuth }) {
         </fieldset>
         <button>Enter</button>
       </form>
-      <form className="register" onSubmit={handleFormSubmit}>
+      {/* <form className="register" onSubmit={handleFormSubmit}>
         <h2>Or, select your callsign and select a faction to register:</h2>
         <fieldset>
           <label htmlFor="">Callsign: </label>
@@ -64,7 +64,7 @@ export default function Entry({ bearerAuth, setBearerAuth }) {
           </select>
         </fieldset>
         <button>Register Agent</button>
-      </form>
+      </form> */}
     </div>
   );
 };

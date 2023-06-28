@@ -11,7 +11,7 @@ export default function Fleet({ fleetData }) {
       </header>
       <section className="ships">
         {fleet.map((ship, idx) => (
-          <Link key={idx} to="/ship">
+          <Link key={idx} to="/ship" state={{ shipSymbol: ship.symbol, nav: ship.nav }} >
             <ShipCard ship={ship} />
           </Link>
         ))}

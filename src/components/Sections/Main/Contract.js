@@ -6,24 +6,32 @@ const formatDate = isoString => {
 };
 
 export default function Contract({ contract }) {
+  const {
+    type,
+    factionSymbol,
+    terms,
+    accepted,
+    deadlineToAccept
+  } = contract
   return (
     <div className="Contract">
       <header>
-        <h1>
-          Current Contract: <br />
-          {contract.type} from: {contract.factionSymbol}
-        </h1>
+        <h1>Current Contract:</h1>
+        <h2><span className="txt-accent">{type}</span> from: {factionSymbol}</h2>
       </header>
       <section className="terms">
         <h2>
-          Paid Upfront: ᖬ{contract.terms.payment.onAccepted}<br />
-          Upon Fulfillment: ᖬ{contract.terms.payment.onFulfilled}<br />
-          Deadline: {formatDate(contract.terms.deadline)}
+          <span className="txt-accent">Paid Upfront:</span> <span style={{ color: '#59e47e' }}>ᖬ</span>{terms.payment.onAccepted}<br />
+          <span className="txt-accent">Upon Fulfillment:</span> <span style={{ color: '#59e47e' }}>ᖬ</span>{terms.payment.onFulfilled}<br />
+          <span className="txt-accent">
+            {accepted ? 'Deadline:' : 'Expiration: '}
+          </span>
+          {formatDate(accepted ? terms.deadline : deadlineToAccept)}
         </h2>
       </section>
       <section className="deliverables">
-        <h2>Deliverables:</h2>
-        {contract.terms.deliver.map((item, idx) => (
+        <h2 className="txt-accent">Deliverables:</h2>
+        {terms.deliver.map((item, idx) => (
           <section key={idx} className="deliverable">
             <h3>{item.tradeSymbol}: {item.unitsRequired} Units</h3>
             <span>
@@ -33,6 +41,6 @@ export default function Contract({ contract }) {
           </section>
         ))}
       </section>
-    </div>
+    </div >
   );
 };
