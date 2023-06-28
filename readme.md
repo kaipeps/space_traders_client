@@ -1,16 +1,10 @@
-# Space Traders Client
-## (Cooler name incoming)  
+# StarPost (SpaceTraders Client)
 A user-friendly app to interact with the [SpaceTraders](https://spacetraders.io/)!
-## :computer: [Click here](https://media.tenor.com/o656qFKDzeUAAAAC/rick-astley-never-gonna-give-you-up.gif) to see my live project!
+## :computer: [Click here](http://space-trade-starpost.surge.sh) to try it out!
 ## :page_facing_up: About
-- How to use my project.
-- Download instructions (if relevant):
-```
-$ git clone my-awesome-app
-$ cd my-awesome-app
-$node app.js
-```
-- Add in-app screenshots
+- StarPost runs off the back of the SpaceTraders API, meaning you need to have an "Agent" registered with them to use it fully.
+- On entry, you'll be prompted to enter your authorization token (don't worry, the only place this is stored is on your browser!)
+- Enter it in and click "Enter" to see your Agent's details, current contract, and fleet of ships!
 ## :pencil: Planning & Problem Solving
 - Talk about the approach to the problem.
 - Add screenshots/drawings of the doodles/plans during the planning phase.
