@@ -625,7 +625,7 @@ export default function Entry({ setBearer }) {
         <button>Enter</button>
       </form>
       <form className="register" onSubmit={handleFormSubmit}>
-        <h2>Or, select your callsign and select a faction to register:</h2>
+        <h2>Or, enter a callsign and select your faction to register:</h2>
         <fieldset>
           <label htmlFor="">Callsign: </label>
           <input type="text" name="symbol" value={callsignContent} onChange={handleCallsignContentChange} />
