@@ -562,8 +562,7 @@ const modalStyle = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 1000,
-  height: 600,
+  width: 800,
   backgroundColor: '#1f0729',
   border: '2px solid #39bbea',
   borderRadius: '0.7rem',
@@ -634,6 +633,7 @@ export default function Entry({ setBearer }) {
         <fieldset>
           <label htmlFor="">Faction: </label>
           <select name="faction" id="">
+            <option value=""></option>
             {factions.map((faction, idx) => (
               <option key={idx} value={faction.symbol}>{faction.name}</option>
             ))}
@@ -650,8 +650,13 @@ export default function Entry({ setBearer }) {
             </Typography>
             <Typography
               id="modal-modal-description"
-              sx={{ mt: 2 }}
-              component="span"
+              sx={{
+                mt: 2,
+                color: '#e2aa42',
+                overflowWrap: 'break-word',
+                wordBreak: 'break-word',
+                hyphens: 'none'
+              }}
               className="token"
             >
               {token}

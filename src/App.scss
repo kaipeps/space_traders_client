@@ -117,12 +117,6 @@ body {
     .Entry {
       font-size: 1.4rem;
 
-      .token {
-        width: 100%;
-        word-wrap: break-word;
-        white-space: nowrap;
-      }
-
       form {
         @include neon-border();
         width: fit-content;
@@ -135,7 +129,7 @@ body {
           input,
           select {
             @include neon-border();
-            background: $dark-shade;
+            background: $dark-shade-translucent;
             font-size: 0.8em;
             font-family: inherit;
             color: $light-shade;
@@ -143,6 +137,25 @@ body {
             padding: 0.2em;
             appearance: none;
           }
+
+          input:hover,
+          select:hover {
+            background: $dark-shade-translucent-hover;
+          }
+        }
+
+        button {
+          @include neon-border();
+          font-family: inherit;
+          color: $light-shade;
+          padding: 0.4em 0.8em;
+          background-color: $dark-shade-translucent;
+          text-align: center;
+          border-radius: 0.75em;
+        }
+
+        button:hover {
+          background-color: $dark-shade-translucent-hover;
         }
       }
     }
@@ -280,12 +293,17 @@ body {
                   margin-top: 0.5em;
 
                   button {
-                    background-color: $dark-shade;
+                    background-color: $dark-shade-translucent;
+                    font-family: inherit;
                     text-align: center;
                     width: 1.4em;
                     height: 1.4em;
                     border-radius: 0.7em;
                     padding: 0 0.2em;
+                  }
+
+                  button:hover {
+                    background-color: $dark-shade-translucent-hover;
                   }
 
                   .add {
