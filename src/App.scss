@@ -117,6 +117,12 @@ body {
     .Entry {
       font-size: 1.4rem;
 
+      .token {
+        width: 100%;
+        word-wrap: break-word;
+        white-space: nowrap;
+      }
+
       form {
         @include neon-border();
         width: fit-content;

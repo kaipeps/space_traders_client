@@ -7,10 +7,9 @@ const StyledTooltip = styled(({ className, ...props }) => (
   [`& .${tooltipClasses.tooltip}`]: {
     backgroundColor: 'rgba(31, 7, 41, 0.8)',
     maxWidth: 250,
-    border: '1px solid #dadde9',
     border: '2px solid #39bbea',
     borderRadius: '0.7rem',
-    boxShadow: '0px 0px 3px #39bbea, 0px 0px 3px #39bbea inset'
+    boxShadow: '0px 0px 3px #39bbea, 0px 0px 3px #39bbea'
   },
 }));
 
