@@ -1,6 +1,6 @@
 # StarPost (SpaceTraders Client)
 A user-friendly app to interact with the [SpaceTraders](https://spacetraders.io/)!
-## :computer: [Click here](http://space-trade-starpost.surge.sh) to try it out!
+## :computer: [Click here](https://space-traders-starpost.surge.sh) to try it out!
 ## :page_facing_up: About
 - StarPost runs off the back of the SpaceTraders API, meaning you will need to have an "Agent" registered with them to use it.
 - On entry, you'll be prompted to enter your authorization token (don't worry, the only place this is stored is on your browser!)
