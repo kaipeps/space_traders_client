@@ -5,16 +5,17 @@ A user-friendly app to interact with the [SpaceTraders](https://spacetraders.io/
 - StarPost runs off the back of the SpaceTraders API, meaning you will need to have an "Agent" registered with them to use it.
 - On entry, you'll be prompted to enter your authorization token (don't worry, the only place this is stored is on your browser!)
 - Once you've filled it in, click "Enter" to see your Agent's details, current contract, and fleet of ships!
+![ship_menu](./planning/screenshots/ship_menu.png)
 ## :pencil: Planning & Problem Solving
-- Talk about the approach to the problem.
+- * Need to talk a bit about my general plan with this project.
 - Add screenshots/drawings of the doodles/plans during the planning phase.
+![sketching](./planning/wireframes/original_layout_framing.png)
 - Flow charts of app logic.
-![sketching](https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+![action_flow](./planning/wireframes/action_flow.png)
 ## :floppy_disk: Cool tech
-- Programming languages
-- Libraries
-- Animations
-- Anything else I'd be proud to show my parents
+- React & React Router to emulate the look of a multi-page application while keeping it to one page!
+- MUI Tooltips to show information on some items on hover!
+- Sass (Scss) to make my relationship with styling considerably easier!
 ## :wrench: Bugs to fix :space_invader:
 - When travelling, the app will read the ship as travelling even after arrival until the page is refreshed. Need to set a timer to tell the component to render again on arrival.
 - Errors for failed actions are currently only display in the console rather than on-screen, need to implement a modal pop-up to display error messages to the user.
