@@ -2,52 +2,52 @@ import { useEffect, useState, useContext } from "react";
 import { ShipContext } from "../../Pages/Ship";
 import Loading from "../../Loading";
 
-async function handleExtraction(ship, setShip, survey) {
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Authorization: sessionStorage.Authorization
-    },
-    body: survey ? JSON.stringify({ survey }) : undefined
-  };
-  const res = await fetch(`https://api.spacetraders.io/v2/my/ships/${ship.symbol}/extract`, options)
-  const response = await res.json()
-  console.log(response)
-  const { cargo } = response.data
-  if (response.error) {
-    console.log(`Error ${response.error.code}: ${response.error.message}`)
-  } else {
-    const { cargo: oldCargo, ...everythingElse } = ship
-    setShip({ cargo, ...everythingElse })
-  }
-};
-
-async function handleDocking(status, ship, setShip) {
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Authorization: sessionStorage.Authorization
-    }
-  };
-  const res = await fetch(`https://api.spacetraders.io/v2/my/ships/${ship.symbol}/${status}`, options)
-  const response = await res.json()
-  if (response.error) {
-    console.log(`Error ${response.error.code}: ${response.error.message}`)
-  } else {
-    const { nav } = response.data
-    const { nav: oldNav, ...everythingElse } = ship
-    setShip({ nav, ...everythingElse })
-  }
-}
-
 export default function Waypoint() {
   const [waypoint, setWaypoint] = useState('');
   const [loadStatus, setLoadStatus] = useState('waiting');
   const { ship, setShip, setSection } = useContext(ShipContext)
+
+  async function handleExtraction(ship, setShip, survey) {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: sessionStorage.Authorization
+      },
+      body: survey ? JSON.stringify({ survey }) : undefined
+    };
+    const res = await fetch(`https://api.spacetraders.io/v2/my/ships/${ship.symbol}/extract`, options)
+    const response = await res.json()
+    console.log(response)
+    const { cargo } = response.data
+    if (response.error) {
+      console.log(`Error ${response.error.code}: ${response.error.message}`)
+    } else {
+      const { cargo: oldCargo, ...everythingElse } = ship
+      setShip({ cargo, ...everythingElse })
+    }
+  };
+
+  async function handleDocking(status, ship, setShip) {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: sessionStorage.Authorization
+      }
+    };
+    const res = await fetch(`https://api.spacetraders.io/v2/my/ships/${ship.symbol}/${status}`, options)
+    const response = await res.json()
+    if (response.error) {
+      console.log(`Error ${response.error.code}: ${response.error.message}`)
+    } else {
+      const { nav } = response.data
+      const { nav: oldNav, ...everythingElse } = ship
+      setShip({ nav, ...everythingElse })
+    }
+  }
 
   useEffect(() => {
     const options = {

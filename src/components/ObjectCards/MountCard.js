@@ -1,11 +1,11 @@
-import CustomTooltip from '../Tooltips/CustomTooltip';
+import HardwareTooltip from '../Tooltips/HardwareTooltip';
 
 export default function MountCard({ mount }) {
   return (
-    <CustomTooltip item={mount}>
+    <HardwareTooltip item={mount}>
       <p className="mount">
         {mount.name}
       </p>
-    </CustomTooltip>
+    </HardwareTooltip>
   );
 };

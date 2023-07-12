@@ -9,23 +9,23 @@ import Marketplace from "../Sections/Waypoints/Marketplace";
 import Shipyard from "../Sections/Waypoints/Shipyard";
 import Modules from "../Sections/Ship/Modules";
 import Mounts from "../Sections/Ship/Mounts";
-
-const convertSymbolNotation = (symbol) => symbol
-  .split('_').join(' ');
-
-const displayStatusAndLocation = (nav) => {
-  const status = convertSymbolNotation(nav.status);
-  const location = nav.waypointSymbol;
-  return <>Currently: <span className="txt-accent">{status}</span> {status === "In Transit" ? "To:" : "At:"} <span className="txt-accent">{location}</span> <br />Co-Ordinates - X: <span className="txt-accent">{nav.route.destination.x}</span>, Y: <span className="txt-accent">{nav.route.destination.y}</span></>;
-};
-
 export const ShipContext = createContext();
 
 export default function Ship() {
   const [loadStatus, setLoadStatus] = useState('waiting');
-  const [section, setSection] = useState('waypoint')
-  const [ship, setShip] = useState({})
+  const [section, setSection] = useState('waypoint');
+  const [ship, setShip] = useState({});
   const { state } = useLocation();
+  const handleShipRefresh = timeout => setTimeout(setLoadStatus, timeout, 'refresh');
+
+  const convertSymbolNotation = (symbol) => symbol
+    .split('_').join(' ');
+
+  const displayStatusAndLocation = (nav) => {
+    const status = convertSymbolNotation(nav.status);
+    const location = nav.waypointSymbol;
+    return <>Currently: <span className="txt-accent">{status}</span> {status === "In Transit" ? "To:" : "At:"} <span className="txt-accent">{location}</span> <br />Co-Ordinates - X: <span className="txt-accent">{nav.route.destination.x}</span>, Y: <span className="txt-accent">{nav.route.destination.y}</span></>;
+  };
 
   useEffect(() => {
     const options = {
@@ -68,7 +68,7 @@ export default function Ship() {
           </h1>
           <section className="interactions">
             <h2>{displayStatusAndLocation(ship.nav)}</h2>
-            <ShipContext.Provider value={{ ship, setShip, setSection }}>
+            <ShipContext.Provider value={{ ship, setShip, setSection, handleShipRefresh }}>
               {section === 'waypoint' ? <Waypoint ship={ship} />
                 : section === 'navigate' ? <Nav ship={ship} />
                   : section === 'marketplace' ? <Marketplace ship={ship} />

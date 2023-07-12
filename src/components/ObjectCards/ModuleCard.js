@@ -1,11 +1,11 @@
-import CustomTooltip from "../Tooltips/CustomTooltip";
+import HardwareTooltip from "../Tooltips/HardwareTooltip";
 
 export default function ModuleCard({ module }) {
   return (
-    <CustomTooltip item={module}>
+    <HardwareTooltip item={module}>
       <p className="module">
         {module.name + (module.count > 1 ? ` x ${module.count}` : '')}
       </p>
-    </CustomTooltip>
+    </HardwareTooltip>
   );
 };

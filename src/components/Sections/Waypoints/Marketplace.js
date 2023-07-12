@@ -4,32 +4,33 @@ import MarketGoodCard from "../../ObjectCards/MarketGoodCard";
 import { useContext } from "react";
 import { ShipContext } from "../../Pages/Ship";
 
-const collateGoods = ({ imports, exports, tradeGoods }) => {
-  const importSymbols = imports.map(tradeImport => tradeImport.symbol);
-  const exportSymbols = exports.map(tradeExport => tradeExport.symbol);
-  tradeGoods.forEach(tradeGood => {
-    if (importSymbols.includes(tradeGood.symbol)) {
-      const importIdx = importSymbols.indexOf(tradeGood.symbol)
-      imports[importIdx].tradeVolume = tradeGood.tradeVolume
-      imports[importIdx].supply = tradeGood.supply
-      imports[importIdx].purchasePrice = tradeGood.purchasePrice
-      imports[importIdx].sellPrice = tradeGood.sellPrice
-    } else if (exportSymbols.includes(tradeGood.symbol)) {
-      const exportIdx = exportSymbols.indexOf(tradeGood.symbol)
-      exports[exportIdx].tradeVolume = tradeGood.tradeVolume
-      exports[exportIdx].supply = tradeGood.supply
-      exports[exportIdx].purchasePrice = tradeGood.purchasePrice
-      exports[exportIdx].sellPrice = tradeGood.sellPrice
-    }
-  });
-  return { imports, exports }
-};
-
 export default function Marketplace() {
   const [imports, setImports] = useState([])
   const [exports, setExports] = useState([])
   const [loadStatus, setLoadStatus] = useState('waiting');
   const { ship, setSection } = useContext(ShipContext)
+
+  const collateGoods = ({ imports, exports, tradeGoods }) => {
+    const importSymbols = imports.map(tradeImport => tradeImport.symbol);
+    const exportSymbols = exports.map(tradeExport => tradeExport.symbol);
+    tradeGoods.forEach(tradeGood => {
+      if (importSymbols.includes(tradeGood.symbol)) {
+        const importIdx = importSymbols.indexOf(tradeGood.symbol)
+        imports[importIdx].tradeVolume = tradeGood.tradeVolume
+        imports[importIdx].supply = tradeGood.supply
+        imports[importIdx].purchasePrice = tradeGood.purchasePrice
+        imports[importIdx].sellPrice = tradeGood.sellPrice
+      } else if (exportSymbols.includes(tradeGood.symbol)) {
+        const exportIdx = exportSymbols.indexOf(tradeGood.symbol)
+        exports[exportIdx].tradeVolume = tradeGood.tradeVolume
+        exports[exportIdx].supply = tradeGood.supply
+        exports[exportIdx].purchasePrice = tradeGood.purchasePrice
+        exports[exportIdx].sellPrice = tradeGood.sellPrice
+      }
+    });
+    return { imports, exports }
+  };
+
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -47,7 +48,8 @@ export default function Marketplace() {
         setExports(exports)
         setLoadStatus('ready');
       });
-  }, [])
+  }, []);
+
   if (loadStatus === 'waiting') {
     return <Loading />
   } else if (loadStatus === 'ready') {

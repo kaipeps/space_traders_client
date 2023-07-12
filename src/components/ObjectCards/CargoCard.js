@@ -1,11 +1,11 @@
-import CustomTooltip from "../Tooltips/CustomTooltip";
+import DescriptiveTooltip from "../Tooltips/DescriptiveTooltip";
 
-export default function CargoCard({ item }) {
+export default function DescriptiveCard({ item }) {
   return (
-    <CustomTooltip item={item}>
+    <DescriptiveTooltip item={item}>
       <div className="CargoCard">
         {item.name}, {item.units}
       </div>
-    </CustomTooltip>
+    </DescriptiveTooltip>
   );
 };

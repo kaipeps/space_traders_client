@@ -7,6 +7,7 @@ export default function Home() {
   const [loadStatus, setLoadStatus] = useState('waiting');
   const [agent, setAgent] = useState({});
   const [fleet, setFleet] = useState([]);
+
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -26,6 +27,7 @@ export default function Home() {
       setLoadStatus('ready')
     })
   }, []);
+
   if (loadStatus === 'waiting') {
     return <Loading />
   } else if (loadStatus === 'ready') {

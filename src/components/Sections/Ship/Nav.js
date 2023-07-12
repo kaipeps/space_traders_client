@@ -3,31 +3,32 @@ import { ShipContext } from "../../Pages/Ship";
 import Loading from "../../Loading";
 import WaypointCard from "../../ObjectCards/WaypointCard";
 
-async function handleNavigation(ship, setShip, waypointSymbol) {
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Authorization: sessionStorage.Authorization
-    },
-    body: JSON.stringify({ waypointSymbol })
-  };
-  const res = await fetch(`https://api.spacetraders.io/v2/my/ships/${ship.symbol}/navigate`, options)
-  const response = await res.json()
-  if (response.error) {
-    console.log(`Error ${response.error.code}: ${response.error.message}`)
-  } else {
-    const { nav, fuel } = response.data
-    const { nav: oldNav, fuel: oldFuel, ...everythingElse } = ship
-    setShip({ nav, fuel, ...everythingElse })
-  }
-};
-
 export default function Nav() {
   const [loadStatus, setLoadStatus] = useState('waiting');
-  const { ship, setSection } = useContext(ShipContext)
+  const { ship, setShip, setSection, handleShipRefresh } = useContext(ShipContext);
   const [waypoints, setWaypoints] = useState('');
+
+  async function handleNavigation(waypointSymbol) {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: sessionStorage.Authorization
+      },
+      body: JSON.stringify({ waypointSymbol })
+    };
+    const res = await fetch(`https://api.spacetraders.io/v2/my/ships/${ship.symbol}/navigate`, options);
+    const response = await res.json();
+    if (response.error) {
+      console.log(`Error ${response.error.code}: ${response.error.message}`);
+    } else {
+      const { nav, fuel } = response.data;
+      const { nav: oldNav, fuel: oldFuel, ...everythingElse } = ship;
+      setShip({ nav, fuel, ...everythingElse });
+      handleShipRefresh(new Date(nav.arrival) - Date.now());
+    }
+  };
 
   useEffect(() => {
     const options = {
@@ -44,7 +45,7 @@ export default function Nav() {
         setWaypoints(waypointsData.data);
         setLoadStatus('ready');
       });
-  }, [])
+  }, []);
 
   if (loadStatus === 'waiting') {
     return <Loading />
